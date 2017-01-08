@@ -1,0 +1,181 @@
+\section{Les premiers pas sous Beamer}
+
+  		\subsection{Les paquets pour faire des diapositives}
+
+	Il existe deux paquets pour faire des paquets sous \LaTeX~:
+\begin{description}
+	\item[prosper] Nous n'en parlerons pas ici
+	\item[beamer] c'est le paquet dont je vous parlerais ici
+\end{description}
+		
+	Beamer a été utilisé pour faire ces diapositives. Vous pouvez donc regarder les sources des documents pour avoir un exemple plus vivant.
+
+
+  		\subsection{Dans le préambule...}
+
+	Premièrement, il faut changer le type du document, au lieu de \emph{article} par exemple il faut mettre~:
+\code
+\documentclass{beamer}
+	\usetheme{Warsaw}
+\end{Verbatim}
+
+	La première ligne correspond au type \emph{beamer} qui nous intéresse ici. Le second permet de définir le thème, c'est-à-dire l'apparence de vos diapos. Ce sont des "modèles" de diapos. Vous pourrez évidemment personnaliser si vous le souhaitez.
+		
+
+
+  		\subsection{Dans le corps du texte...}
+
+Dans le corps du texte, les commandes à utiliser pour définir une diapositive sont les suivantes~:
+\code
+\begin{frame}
+Mon texte...
+\end{frame}
+\end{Verbatim}
+
+	ce qui donne la diapo de la page suivante...
+
+
+Mon texte...
+
+
+\section{Titres et organisation}
+
+
+	Les commandes \emph{\textbackslash section} et \emph{\textbackslash subsection} sont disponibles et vous permettent de structurer votre présentation. 
+
+\vspace{0.1cm}
+Certains modèles utilisent ces informations pour créer un affichage de la progression de la présentation.
+
+
+
+  		\subsection{Titres des diapositives}
+
+Vous pouvez rajouter des titres aux diapositives. Ces titres seront clairement visibles sur le document mais ne seront pas indexés dans la table des matières.
+
+\vspace{0.1cm}
+Sur ce modèle il occupe le bandeau juste au dessus du texte. La syntaxe est relativement simple~:
+
+\code
+\begin{frame}
+\frametitle{Mon titre}
+Mon texte ....
+\end{frame}
+\end{Verbatim}
+
+
+Mon texte ....
+
+
+  		\subsection{Titres des diapositives}
+
+La syntaxe ci-dessous est aussi possible... pour le même résultat.
+
+\code
+\begin{frame}{Mon titre}
+\frametitle
+Mon texte ....
+\end{frame}
+\end{Verbatim}
+
+
+
+  		\subsection{Ajout de Verbatim}
+
+S'il y a au moins un bloc \emph{listings} ou \emph{verbatim} il faut ajouter une balise pour \LaTeX~:
+
+\code
+\begin{frame}[containsverbatim]
+\frametitle{Mon titre}
+Mon texte ....
+\end{frame}
+\end{Verbatim}
+
+
+
+\section{Mise en page et environnements}
+
+  		\subsection{Ajout de Verbatim}
+
+On ne peut pas utiliser la syntaxe suivante dans cet ordre.
+
+\code
+\begin{frame}[containsverbatim]{Mon titre}
+Mon texte ....
+\end{frame}
+\end{Verbatim}
+
+
+
+  		\subsection{Options de mise en page supplémentaires...}
+
+Beamer offre la possibilité de mettre tout ou partie du texte en évidence en utilisant la balise \emph{block}
+
+\code
+\begin{frame}[containsverbatim]
+\frametitle{Mon titre}
+\begin{block}{Mon titre de bloc}
+Mon texte ....
+\end{block}
+\end{frame}
+\end{Verbatim}
+
+
+  		\subsection{Options de mise en page supplémentaires...}
+
+Les environnements  suivants sont également disponibles...
+
+\begin{itemize}
+	\item alertblock
+	\item theorem
+	\item proof
+	\item example
+	\item beamercolorbox
+\end{itemize}
+
+
+
+
+Comme d'autres logiciels, on peut insérer des étapes~:
+
+\code
+\begin{itemize}
+	\item<1-> alertblock
+	\item<2-> theorem
+	\item<3-> proof
+	\item<4-> example
+	\item<5-> beamercolorbox
+\end{itemize}
+\end{Verbatim}
+
+
+
+
+Dans le code précédent, \emph{alertblock} sera visible de la diapo un à la dernière, \emph{theorem}, de la diapo 2 à la dernière et ainsi de suite...
+
+
+\section{Thèmes et sous forme d'article...}
+
+  		\subsection{Les thèmes}
+
+Pour avoir un aperçu des thèmes Beamer, il y a ce \href{http://mcclinews.free.fr/latex/beamergalerie.php}{site }.
+
+
+
+
+  		\subsection{Sortie sous forme d'article}
+
+Pour sortir les diapositives sous la forme d'un article, il suffit de changer le \emph{documentclass}~:
+
+\code
+\documentclass{article}
+...
+\usepackage{beamerarticle}
+...
+\end{Verbatim}
+
+
+
+
+  					
+
+

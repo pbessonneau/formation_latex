@@ -1,0 +1,623 @@
+\section{Listes à puce, insérer du code, ...}		
+
+  	\subsection{Les listes \emph{à puces}}
+			
+			Les commandes de mise en page utilisent la syntaxe par blocs expliquée précédemment.		  		
+
+\code		  		
+\begin{itemize}
+	\item Numéro 1
+	\begin{itemize}	
+		\item Numéro 1
+		\item Numéro 2
+	\end{itemize}	
+	\item Numéro 2
+\end{itemize}
+\end{Verbatim}
+		
+			Ce qui donne...	  		
+
+
+			
+			\begin{itemize}
+				\item Numéro 1
+				\begin{itemize}	
+					\item Numéro 1
+					\item Numéro 2
+				\end{itemize}						
+				\item Numéro 2
+			\end{itemize}
+
+
+			
+			La syntaxe qui permet de changer le type de puce est assez simple.		  		
+
+\code		  		
+\begin{itemize}
+	\item[\CheckmarkBold] Numéro 1
+	\begin{itemize}	
+		\item[\ding{51}] Numéro 1
+		\item[\ding{56}] Numéro 2
+	\end{itemize}	
+	\item[\XSolidBrush] Numéro 2
+\end{itemize}
+\end{Verbatim}
+		
+			Ce qui donne...	  		
+
+
+			
+		\begin{itemize}
+			\item[\CheckmarkBold] Numéro 1
+			\begin{itemize}	
+				\item[\ding{51}] Numéro 1
+				\item[\ding{56}] Numéro 2
+			\end{itemize}	
+			\item[\XSolidBrush] Numéro 2
+		\end{itemize}
+
+
+			
+			Les quelques lignes précédentes pose le problème de trouver la liste des symboles de \latex. 
+			
+			Comme évoqué précedemment, le lecteur trouvera sont bonheur dans la liste des caractères spéciaux réunis dans le document \href{http://www.ctan.org/tex-archive/info/symbols/comprehensive/}{\emph{The Comprehensive \latex Symbol List}}.
+			
+			L'ouvrage \href{http://framabook.org/5-tout-ce-que-vous-avez-toujours-voulu-savoir-sur-latex-sans-jamais-oser-le-demander/}{FramaBook \LaTeX} de l'association \emph{Framasoft} est également une source d'inspiration.
+			
+
+  	\subsection{Les listes decriptives}
+		
+
+\begin{description}
+	\item[\TeX] Le langage original par Knuth
+	\item[\LaTeX] La version évoluée et plus simple.
+	\item[Con\TeX] Une version très intéressante 
+\end{description}
+
+
+		
+
+				
+		
+			\code	
+\begin{description}
+	\item[\TeX] Le langage original par Knuth
+	\item[\LaTeX] La version évoluée et plus simple.
+	\item[Con\TeX] Une version très intéressante 
+\end{description}
+			\end{Verbatim}
+
+		
+
+		
+			
+  	\subsection{Les listes incrémentées}
+			
+			\code		  		
+\begin{enumerate}
+	\item Numéro 1
+	\begin{enumerate}
+		\item Numéro 1 
+		\item Numéro 1
+	\end{enumerate}
+	\item Numéro 2
+\end{enumerate}
+			\end{Verbatim}
+		
+			Ce qui donne...	  		
+
+
+			
+		\begin{enumerate}[1.]
+			\item Numéro 1
+			\begin{enumerate}[1.]
+				\item Numéro 1 
+				\item Numéro 1
+			\end{enumerate}
+			\item Numéro 2
+		\end{enumerate}
+
+
+
+		Il y a la possbilité de changer le style de numérotation~:
+
+		\begin{description}
+			\item [Brutale] en utilisant l'environnement 
+			\item [paquet \emph{enumitem}] Les commandes disponibles dans ce paquet sont notamment~: 
+					\begin{description}
+						\item[\textbackslash alph\{number\}] lettres en minuscules
+						\item [\textbackslash Alph\{number\}] lettres en majuscules
+						\item [\textbackslash arabic\{number\}] les nombres
+						\item [\textbackslash roman\{number\}] des lettres \og~romaines~\fg en minusucules et des numéros
+						\item [\textbackslash Roman\{number\}] des lettres \og~romaines~\fg en majusucules et des numéros
+					\end{description}
+					
+		\end{description}
+			
+
+			
+			\code		  		
+\begin{enumerate}[label=\arabic{*})]
+	\item Numéro 1
+	\begin{enumerate}[label=\alph{*})]
+		\item Numéro 1 
+		\item Numéro 1
+	\end{enumerate}
+	\item Numéro 2
+\end{enumerate}
+			\end{Verbatim}
+		
+
+ 	
+		\begin{description}
+			\item [paquet \emph{enumerate}] qui a une syntaxe plus naturelle mais qui présente moins de possibilités...
+				\vspace{0.3cm}
+				\code
+\begin{enumerate}[a)]
+\item ...
+\end{enumerate}			
+				\end{Verbatim}
+		\end{description}
+
+
+
+\begin{enumerate}[1)]
+	\item Numéro 1
+	\begin{enumerate}[a)]
+		\item Numéro 1 
+		\item Numéro 1
+	\end{enumerate}
+	\item Numéro 2
+\end{enumerate}
+
+		
+
+		Pour commencer (ou plutôt reprendre) une liste numérotée en cours de route, il faut jouer sur la valeur du compteur. Les compteurs décrit plus loin sont des variables incrémentées par \latex et/ou par l'utilisateur.
+		
+		\code
+\begin{enumerate}[1)]
+	\setcounter{enumi}{5}
+	\item Numéro 1
+	\begin{enumerate}[a)]
+		\setcounter{enumii}{3}
+		\item Numéro 1 
+		\item Numéro 1
+	\end{enumerate}
+	\item Numéro 2
+\end{enumerate}
+\end{Verbatim}
+	
+
+
+\begin{enumerate}[1)]
+	\setcounter{enumi}{5}
+	\item Numéro 1
+	\begin{enumerate}[a)]
+		\setcounter{enumii}{3}
+		\item Numéro 1 
+		\item Numéro 1
+	\end{enumerate}
+	\item Numéro 2
+\end{enumerate}
+	
+
+
+ 	\subsection{Encore plus de listes...}
+
+	Les paquets \emph{inparaenum}, \emph{enumitem}, \emph{easylist}, \ldots permettent de nombreuses fonctionnalités autour des listes.
+
+	Par exemple, \emph{paralist} permet d'ajouter une liste numérotée à l'intérieur d'un texte.
+	
+
+\section{Justification, taille et couleur du texte}				
+
+  	\subsection{Justifions du texte...}
+			
+			Toujours par blocs...
+			
+			\code
+\begin{right}		  		
+	Ce texte est à droite...\\
+\end{right}
+\begin{center}		  		
+	Ce texte est centré...\\
+\end{center}
+\begin{left}		  		
+	Ce texte est à gauche...\\
+\end{left}
+			\end{Verbatim}
+			
+			Ce qui donne...
+
+
+			
+			\begin{flushright}		  		
+			Ce texte est à droite...\\
+			\end{flushright}
+			\begin{center}		  		
+			Ce texte est centré...\\
+			\end{center}
+			\begin{flushleft}		  		
+			Ce texte est à gauche...\\
+			\end{flushleft}
+			
+
+
+  		\subsection{Justification du texte}
+
+                Vous pouvez souhaiter justifier du texte comme \textit{Word} avec l'option "ligne pleine"~: c'est-à-dire avec le moins d'espace possible et aucun mot ne dépassant et aucune césure. Dans ce cas, il faut intégrer le code ci-dessous dans le préambule où dans un bloc. 
+
+\code
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+\end{Verbatim}
+
+
+  	\subsection{Mettons en évidence...}
+
+			\begin{table}[h!]
+			\begin{center}
+			  {\setlength{\extrarowheight}{4pt}
+			  \begin{tabular}{|l|l|c|}
+			    \hline
+			    \hfil Commande      & \hfil D\'eclarations   & Output \\
+			    \hline
+			    \ltxcom{textrm}\verb+{...}+ & 
+			    \verb+{+\ltxcom{rmfamily}\verb+ ...}+ & {\rmfamily roman}\\
+			    \ltxcom{textsf}\verb+{...}+ & 
+			    \verb+{+\ltxcom{sffamily}\verb+ ...}+ & {\sffamily sans sérif}\\
+			    \ltxcom{texttt}\verb+{...}+ & 
+			    \verb+{+\ltxcom{ttfamily}\verb+ ...}+ & {\ttfamily machine à écrire}\\
+			    \hline
+			    \ltxcom{textup}\verb+{...}+ & 
+			    \verb+{+\ltxcom{upshape}\verb+ ...}+ & {\upshape droit}\\
+			    \ltxcom{textit}\verb+{...}+ & 
+			    \verb+{+\ltxcom{itshape}\verb+ ...}+ & {\itshape italique}\\
+			    \ltxcom{textsl}\verb+{...}+ & 
+			    \verb+{+\ltxcom{slshape}\verb+ ...}+ & {\slshape penché}\\
+			    \ltxcom{textsc}\verb+{...}+ & 
+			    \verb+{+\ltxcom{scshape}\verb+ ...}+ & {\scshape Petites Capitales}\\
+			    \hline
+			    \ltxcom{textmd}\verb+{...}+ & 
+			    \verb+{+\ltxcom{mdseries}\verb+ ...}+ & {\mdseries medium}\\
+			    \ltxcom{textbf}\verb+{...}+ & 
+			    \verb+{+\ltxcom{bfseries}\verb+ ...}+ & {\bfseries gras}\\
+			    \hline
+			  \end{tabular}}
+                        \caption{tiré du FramaBook sur \LaTeX}
+			\end{center}  
+			\end{table}
+
+
+
+			Cette fois c'est une commande avec arguments...
+  	
+  	\code
+Ce texte est en mode normal\\
+\emph{Ce texte est en italique}\\
+\texttt{Ce texte est en machine à écrire}\\
+\textit{Ce texte est en italique}\\
+\textsc{Ce texte est en petites capitales}\\
+\textbf{Ce texte est en gras}\\
+  	\end{Verbatim}
+		
+		ce qui donne...  	
+
+
+  	
+  		Ce texte est en mode normal\\
+	  	\emph{Ce texte est mis en évidence}\\
+	  	\texttt{Ce texte est en machine à écrire}\\
+	  	\textit{Ce texte est en italique}\\
+	  	\textsc{Ce texte est en petites capitales}\\
+	  	\textbf{Ce texte est en gras}\\
+
+
+
+  	\code
+{ \bfseries Cette syntaxe diminue notablement la 
+lisibilité du code.
+} 
+  	\end{Verbatim}
+  	
+  	{ \bfseries Donc à utiliser avec précaution. }
+
+
+  	\subsection{Mettons en couleurs...}
+  	
+  		Dans ce cas, on appelle une macro dans le paquet \emph{color}. Du coup, l'appel se fait par la commande suivie de plusieurs accolades, chaque couple d'accolade abritant un argument~: 
+  	\code
+\textcolor{red}{...texte...}
+  	\end{Verbatim}
+		
+  	\textcolor{red}{L'appel se fait avec la couleur en premier argument puis le texte à coloriser dans le second argument.}
+  	
+		
+  	\subsection{Les tailles de polices...}
+		
+		Pour les tailles de police, c'est une commande sans argument qui va changer l'interprétation du texte qui la suit~: 
+		
+  	\code
+\Huge Lorem ipsum \LARGE dolor sit amet, consectetur 
+\normalsize adipiscing elit. \tiny Nunc in dui nec arcu 
+\normalsize facilisis cursus id nec lorem.   	
+\end{Verbatim}
+		
+
+		
+		Ce qui donne...
+		
+\Huge Lorem ipsum \LARGE dolor sit amet, consectetur 
+\normalsize adipiscing elit. \tiny Nunc in dui nec arcu 
+\normalsize facilisis cursus id nec lorem.   	
+		
+
+
+
+			\begin{table}[h!]
+			  \caption{Changement de taille (Tiré du Framabook sur \LaTeX)}
+			  \label{tab-taille}
+			  \begin{center}
+			    {\addtolength{\extrarowheight}{4pt}
+			    \begin{tabular}{||l|c||l|c||}
+			      \hline
+			      \ltxcom{Huge} & {\Huge immense} & \ltxcom{normalsize} & {\normalsize normal} \\
+			      \ltxcom{huge} & {\huge énorme} & \ltxcom{small} & {\small petit}
+			      \\
+			      \ltxcom{LARGE}& {\LARGE très très gros} &  \ltxcom{footnotesize}& {\footnotesize plus petit} \\
+			      \ltxcom{Large} & {\Large très gros} &  \ltxcom{scriptsize}  & {\scriptsize encore plus petit} \\
+			      \ltxcom{large} & {\large gros}  & \ltxcom{tiny} & {\tiny
+			        minuscule} \\
+			      \hline
+			    \end{tabular}}
+			  \end{center}
+			\end{table}		
+
+				
+\section{Ajout d'espacement et autres...}		
+		
+  		\subsection{Espacement vertical}
+  		
+  		Pour forcer \latex à insérer un espace entre deux paragraphes, il faut utiliser la commande \textbackslash vspace.
+  		
+  		\code
+Du texte...\\
+\vspace{1cm}
+Le reste du texte...
+\end{Verbatim}
+
+Du texte...\\
+\vspace{1cm}
+Le reste du texte...
+		
+
+  		\subsection{Espacement horizontal}
+  		
+  		Pour forcer \LaTeX à insérer un espace entre deux mots, il faut utiliser la commande \textbackslash hspace.
+  	
+  		\code
+Du texte...\hspace{1cm}Le reste du texte...
+\end{Verbatim}
+
+Du texte...\hspace{1cm}Le reste du texte...
+		
+		
+  		\subsection{Insérer une ligne}
+  		
+  		Pour insérer une ligne horizontale, il suffit d'appeler la commande \textbackslash hrule.
+  		
+  		\code
+  		Du texte...\\
+			\vspace{0.1cm}
+  		\hrule
+  		\vspace{0.1cm}
+  		Le reste du texte...
+  		\end{Verbatim}
+		
+  		Du texte...\\
+			\vspace{0.1cm}
+  		\hrule
+  		\vspace{0.1cm}
+  		Le reste du texte...
+		
+
+
+  		
+  		Dans le même genre d'idées...
+  		
+  		\code
+Du texte \dotfill du texte \dotfill du texte\\
+\vspace{0.1cm}
+Du texte \hrulefill du texte \hrulefill du texte\\
+  		\end{Verbatim}
+		
+Du texte \dotfill du texte \dotfill du texte\\
+\vspace{0.1cm}
+Du texte \hrulefill du texte \hrulefill du texte\\
+		
+		
+  		\subsection{Insérer des sauts de page}
+  		
+  		Pour insérer un saut de page manuel, il suffit d'ajouter \emph{\textbackslash newpage}.
+  		
+  		La commande \emph{\textbackslash clearpage} est légèrement différentes~: elle indique au compilateur qu'un saut de page est nécessaire mais elle impose aussi au compilateur de vider le tampon contenant les flottants. Par conséquent tous les tableaux et toutes les figures \fg~en attente~\fg sont placés dans le document au niveau de la commande. 
+  		
+  		La commande \emph{\textbackslash clearpage} s'utilise typiquement quand on veut un saut de page entre le chapitre 2 et le chapitre 3. De plus, les figures du chapitre 2 ne doivent pas apparaître dans le chapitre 3.
+  		  		
+
+\section{Mise en page}
+
+  		\subsection{Redéfinir les marges et l'espace imprimable...}
+
+		Cela peut être réalisé à l'aide de commandes \latex directement~:
+\code
+\setlength{\oddsidemargin}{0cm}
+\setlength{\textwidth}{16cm}
+\setlength{\textheight}{24cm}
+\setlength{\topmargin}{-1cm}
+\setlength{\marginparsep}{0.2cm}
+\end{Verbatim}
+
+		Le lecteur exigeant sur les marges trouvera plus de renseignement en consultant la page du package \href{http://texdoc.net/texmf-dist/doc/latex/geometry/geometry.pdf}{\emph{geometry}} qui permet beaucoup de manipulations sur les différentes marges des documents \latex.
+
+
+
+Au lieu de définir les valeurs exactes, on peut redéfinir par rapport à la valeur par défaut~:
+\code
+\addtolength{grandeur}{ajout positif ou négatif} 
+\end{Verbatim}
+
+
+
+
+\begin{table}[h!]		
+	\scalebox{0.6}{
+		\begin{tabular}{ll}
+			\textbackslash pdfpageheight & hauteur du PDF\\
+			\textbackslash pdfpagewidth 	& largeur du PDF\\
+			\textbackslash topmargin 	& longueur de la marge en haut\\
+			\textbackslash evensidemargin 	& marge gauche sur les pages impaires\\
+			\textbackslash oddsidemargin 	 & marge gauche sur les pages paires\\
+			\textbackslash headheight 	& hauteur du pied de page\\
+			\textbackslash headsep 	 & distance entre le bas de l'en tête et le texte.\\
+			\textbackslash topskip 	& distance entre le haut du texte entre le haut du texte et la première ligne de texte.\\
+			\textbackslash textheight & hauteur du texte principal\\
+			\textbackslash textwidth 	& hauteur du texte principal\\
+			\textbackslash footskip 	 & distance entre le bas du texte et le bas du pied de page\\
+			\textbackslash parskip 	& distance entre deux paragraphes\\
+			\textbackslash parindent 	& longueur de l'indentation des paragraphes.\\
+		\end{tabular}
+	}
+	\caption{Options de mise en page}
+\end{table}		
+
+
+
+  		\subsection{Redéfinir les en-têtes et pieds de page}
+
+Pour redéfinir les en-têtes et pieds de page, le plus simple est d'utiliser le package \emph{fancyhdr}.
+
+\code
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\end{Verbatim}
+
+Vous utiliserez souvent le paquet \emph{lastpage} avec car il permet d'imprimer le nombre total de pages du document.
+
+
+
+
+Pour le document texte de la formation, dans le préambule vous pourrez trouver ces commandes pour les en-têtes et pieds de page~:
+
+\code
+\pagestyle{fancy}  
+\fancyfoot[L]{{\small Formation \LaTeX, DEPP}}
+\fancyfoot[c]{} 
+\fancyfoot[R]{{\small \thepage/\pageref{LastPage}}}
+\fancyhead[L]{} 
+\fancyhead[c]{}
+\fancyhead[R]{} 
+\end{Verbatim}
+
+
+
+Vous l'aurez compris le paquet offre de personnaliser la gauche, le centre et la droite des en-têtes et pieds de page avec les commandes L, C et R.
+
+On appele le nombre total de pages avec la commande \textbackslash \emph{pageref}\{\emph{LastPage}\} et le numéro de la page courante par la commande \textbackslash \emph{thepage}.
+
+
+  		\subsection{Redéfinir la taille d'un paragraphe}
+  		
+  		Parfois il est nécessaire de limiter la largeur d'un paragraphe ou de forcer \latex à considérer un paragraphe comme un bloc. La commande \textbackslash \emph{parbox} est là pour ça.
+  		
+  		\begin{center}
+  		\parbox{5cm}{
+  			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sapien mi, pretium ut consectetur a, congue eu odio. Vestibulum et odio vel sem pulvinar ultrices ultrices eget nulla. Nam in ipsum nibh. Integer euismod turpis et diam molestie accumsan. Suspendisse potenti. Curabitur fringilla, urna convallis dapibus placerat, elit nibh viverra leo, ut suscipit quam dui vitae felis\ldots
+  		}
+			\end{center}
+
+
+  		
+\code
+\begin{center}
+	\parbox{5cm}{
+		Lorem ipsum dolor ...
+	}
+\end{center}
+\end{Verbatim}
+
+  		\subsection{Faire du multicolonne}
+			
+			Pour un article ou pour tout autre document, il peut être intéressant d'avoir plusieurs colonnes.
+			
+			Tous les fonctionnalités sont bien décrites dans \href{http://cahiers.gutenberg.eu.org/cg-bin/article/CG_1994___17_49_0.pdf}{ce document} sur le site Gutenberg.
+
+\code
+\begin{multicols}{3}
+Lorem ipsum dolor sit amet...
+\end{multicols}
+\end{Verbatim}
+
+		
+  		\subsection{L'intérêt des \emph{minipage}}
+			
+			Les minipage sont des environnements qui permettent de diviser une page plusieurs pages \og~virtuelles~\fg plus petites et plus modulaires...
+			\vspace{0.3cm}
+			
+			\begin{tabular}{cc}
+				\begin{minipage}[l]{0.4\textwidth}
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sapien mi, pretium ut consectetur a, congue eu odio. 
+				\end{minipage}\vspace{0.3cm}
+				&
+				\begin{minipage}[l]{0.4\textwidth}
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sapien mi, pretium ut consectetur a, congue eu odio. 
+				\end{minipage}\vspace{0.3cm}\\
+				\begin{minipage}[l]{0.4\textwidth}
+								\includegraphics[width=\textwidth]{Graphiques/t_distribution}
+				\end{minipage}
+				&
+				\begin{minipage}[l]{0.4\textwidth}
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sapien mi, pretium ut consectetur a, congue eu odio. 
+				\end{minipage}\\
+			\end{tabular}
+
+			
+\code			
+\begin{tabular}{cc}
+	\begin{minipage}[l]{0.4\textwidth}
+		Lorem ...
+	\end{minipage}\vspace{0.3cm}
+	&
+	\begin{minipage}[l]{0.4\textwidth}
+		Lorem ...
+	\end{minipage}\vspace{0.3cm}\\
+	\begin{minipage}[l]{0.4\textwidth}
+		\includegraphics[width=\textwidth]
+		{Graphiques/t_distribution}
+	\end{minipage}
+	&
+	\begin{minipage}[l]{0.4\textwidth}
+		Lorem ...
+	\end{minipage}\\
+\end{tabular}
+\end{Verbatim}
+		
+\section{Babel\ldots}
+
+  		\subsection{Un mot sur Babel}
+  		
+Pour écrire que M\up{me} s'est mariée pour la 1\iere fois, c'est possible grâce à l'extension \textit{french} de Babel que vous trouverez dans le préambule des documents qui vous sont fournis. 
+
+\primo, \secundo, etc... et d'autres abbréviations françaises sont possibles. Pour une revue de détail, voir l'ouvrage \textit{\latex par la pratique} de Christian \bsc{Rolland} qui donne aussi des clefs sur la typograhie française qui sont loin d'être toutes respectées dans ce document.
+  		
+  		\code
+Pour écrire que M\up{me} s'est mariée pour la 1\ere fois
+\primo, \secundo, ... 
+Christian \bsc{Rolland}
+		\end{Verbatim}
+
+		
+
+

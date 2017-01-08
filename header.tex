@@ -1,0 +1,146 @@
+\documentclass{beamer}
+\usetheme[compress]{Singapore}
+\useoutertheme{miniframes}
+
+% Pour les documents en français...
+	\usepackage[latin1]{inputenc}
+	\usepackage[french]{babel}    
+	\usepackage[french]{varioref} 
+	
+% Mathématiques
+	\usepackage{amsmath}
+	
+% A documenter	
+	\usepackage{moreverb}
+	\usepackage{lipsum}
+
+% Pour insérer des graphiques	
+	\usepackage{eso-pic,graphicx}	% Graphique simples    
+	\usepackage{subfigure}			% Graphiques multiples
+	\usepackage{xcolor}
+	\usepackage{tikz}
+	\usetikzlibrary{positioning}						
+	
+% Pour insérer des couleurs	
+	\usepackage{color}
+
+% Outil supplémentaire pour les tableaux
+	\usepackage{multirow}
+ 	\usepackage{booktabs}
+	\usepackage{longtable}
+	\usepackage{colortbl}
+	
+% Rotation des objets et des pages
+	\usepackage{rotating}
+	\usepackage{lscape}
+
+% Pour insérer du code source, LaTeX ou SAS par exemple.
+	\usepackage{verbatim}
+	\usepackage{fancyvrb}
+	\usepackage{listings} 
+
+% Pour insérer des hyperliens
+	\usepackage{hyperref}
+
+% American Psychological Association (for bibliographic references).
+	\usepackage{apacite}
+  
+% Pour l'utilisation des macros
+	\usepackage{xspace}
+
+% Pour l'utilisation de notes en fin de document.
+	\usepackage{endnotes}
+
+% Rotation
+	\usepackage{rotating}
+
+% Pour les tâches de café
+	\usepackage{coffee}
+
+% Symboles supplémentaires
+	\usepackage{bbding}
+	\usepackage{pifont}
+
+% Pour les listes numérotées
+	\usepackage{enumerate}
+
+% Pour la dernière page
+	\usepackage{lastpage}
+
+% Pour Highlight d'Andre Simon
+\usepackage{alltt}
+
+% pour les symboles
+\usepackage{keystroke}
+%\usepackage{feyn}
+\usepackage{bbding}
+\usepackage{phonetic}
+
+% Pour insérer des dessins de Linux
+\newcommand{\LinuxA}{\includegraphics[height=0.5cm]{Graphiques/linux.png}}
+\newcommand{\LinuxB}{\includegraphics[height=0.5cm]{Graphiques/linux.png}\xspace}
+
+% Macro pour les petits dessins pour les différents OS.
+\newcommand{\Windows}{\emph{Windows}\xspace}
+\newcommand{\Mac}{\emph{Mac OS X}\xspace}
+\newcommand{\Linux}{\emph{Linux}\xspace}
+\newcommand{\MikTeX}{MiK\tex\xspace}
+
+% Des raccourcis pour les commandes \LaTeX, \TeX, ...
+\newcommand{\latex}{\LaTeX\xspace}
+\newcommand{\latexe}{\LaTeXe\xspace}
+\newcommand{\tex}{\TeX\xspace}
+
+% Commande pour le mode Verbatim
+\newcommand{\code}{\vspace{0.2cm}\begin{Verbatim}[frame=single,label=Code,fontsize=\small]}
+\newcommand{\tinycode}{\vspace{0.2cm}\begin{Verbatim}[frame=single,label=Code,fontsize=\tiny]}
+
+% From Framabook (www.framasoft.net)
+\newcommand{\latexcom}[1]{{\mdseries\ttfamily\upshape\symbol{92}#1}}
+\newcommand{\indexcom}[1]{%
+  \index{#1@\protect\texttt{\symbol{92}#1}}}
+\newcommand{\ltxcom}[1]{%
+  \latexcom{#1}\indexcom{#1}}  
+
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0,0,0}{#1}}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.5,0,0.5}{\bf{#1}}}
+\newcommand{\hlesc}[1]{\textcolor[rgb]{1,0,1}{\bf{#1}}}
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.65,0.52,0}{#1}}
+\newcommand{\hlpps}[1]{\textcolor[rgb]{0,0,1}{#1}}
+\newcommand{\hlslc}[1]{\textcolor[rgb]{0.95,0.47,0}{#1}}
+\newcommand{\hlcom}[1]{\textcolor[rgb]{1,0.5,0}{#1}}
+\newcommand{\hlppc}[1]{\textcolor[rgb]{0,0.5,0.75}{\bf{#1}}}
+\newcommand{\hlopt}[1]{\textcolor[rgb]{1,0,0.5}{\bf{#1}}}
+\newcommand{\hlipl}[1]{\textcolor[rgb]{0.62,0.36,1}{#1}}
+\newcommand{\hllin}[1]{\textcolor[rgb]{0.19,0.19,0.19}{#1}}
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.73,0.47,0.47}{\bf{#1}}}
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.5,0.5,0.75}{\bf{#1}}}
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0,0.5,0.75}{#1}}
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0,0.27,0.4}{#1}}
+
+
+\newcommand{\yslant}{0.5}
+\newcommand{\xslant}{-0.6}
+		 
+% Titre		 
+\title{Introduction à \LaTeX}
+\author{Pascal Bessonneau}
+\date{05/2016}
+
+
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,545 @@
+\input{header}
+
+\subtitle{Introduction}  
+
+\begin{document}
+
+  \begin{frame}
+  \titlepage
+  \end{frame}
+
+  \begin{frame}<beamer>
+    \frametitle{Plan}
+    \tableofcontents
+  \end{frame}
+
+\section{L'histoire en trois mots...}
+
+      \begin{frame}[containsverbatim]
+      \frametitle{L'histoire en trois mots...}
+
+			A l'origine de \latex, il y a un homme, Donald Knuth. Mathématicien et informaticien de génie, il est l'auteur de plusieurs ouvrages de référence dont \emph{The Art of Computer Programming}.
+			
+			Il a conçu non pas \latex mais \tex. \tex est venu, à la fin des années 70, de l'amour de la typographie et des beaux documents de Knuth. 
+			
+			Knuth est également le concepteur de \emph{Metafont}~: c'est un langage permettant de faire des dessins qui s'incorporent naturellement avec \tex. Le langage est un peu difficile mais les résultats sont spectaculaires.
+
+    	\end{frame}
+
+      \begin{frame}[containsverbatim]
+      \frametitle{L'histoire en trois mots...}
+			
+				Dans un second temps, \tex étant un peu trop aride, Leslie Lamport a développé \latex qui se superpose à \tex et qui offre une syntaxe plus conviviale. 
+
+				Mais en fait \latex n'a pas été la seule extension de \tex, \tex a donné naissance a plusieurs bébés... Parmi les plus célèbres~:  
+
+				\begin{itemize}
+					\item \latex, \latexe
+					\item \href{http://www.pragma-ade.nl/}{Con\tex}\footnote{http://www.pragma-ade.nl/}
+					\item \href{http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=xetex}{Xe\tex}\footnote{http://scripts.sil.org/cms/scripts/page.php?site \_ id=nrsi \& id=xetex}
+					\item ...
+				\end{itemize}
+				
+    	\end{frame}
+    	
+      \begin{frame}[containsverbatim]
+      \frametitle{L'histoire en trois mots...}
+
+			Ils ont tous en commun \tex mais leurs langages et leurs possibilités varient un peu. 
+			
+			Le plus portable est \latex. Un concurrent très sérieux est \href{http://www.pragma-ade.nl/}{Con\TeX} qui permet facilement de faire des choses peu aisées à réaliser en \latex.
+			
+			\href{http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=xetex}{Xe\tex} quant à lui permet d'utiliser une gestion des caractères et des fontes très avancées (notamment les ligatures).
+
+    	\end{frame}
+
+
+
+\section{Qu'est ce que \latex ?}
+ 
+      \begin{frame}[containsverbatim]
+      \frametitle{Un langage de mise en forme...}
+      
+      \TeX est un langage informatique qui permet la mise en page de document. 
+      
+      Par opposition au logiciel \og~What You See Is What You Get~\fg tels que Word, le principe de \TeX est de fournir à un compilateur un fichier texte contenant le texte et les commandes de mises en forme à exécuter sur ce texte.
+      
+      Très grossièrement, \latex peut se comparer à de l'HTML~: un mélange de texte et de \og~balises~\fg. 
+
+    	\end{frame}
+
+      \begin{frame}[containsverbatim]
+      \frametitle{Un petit exemple de code \latex}
+
+\tinycode
+\begin{frame}[containsverbatim]
+	\frametitle{Un langage de mise en forme...}
+      
+  \TeX est un langage informatique qui permet la mise en page de document. 
+      
+  Par opposition au logiciel \og~What You See Is What You Get~\fg tels que Word, le principe de 
+  \TeX est de fournir à un compilateur un fichier texte contenant le texte et les commandes de 
+  mises en forme à exécuter sur ce texte.
+      
+  Très grossièrement, \latex peut se comparer à de l'HTML~: un mélange de texte et de 
+  \og~balises~\fg. 
+
+\end{Verbatim}
+      
+    	\end{frame}
+      \begin{frame}[containsverbatim]
+      \frametitle{Phases pour la production d'un document}
+
+			\begin{enumerate}
+				\item L'utilisateur réalise le fichier \og~.tex~\fg
+				\item l'utilisateur lance le compilateur sur le fichier \og~.tex~\fg 
+				\item Le compilateur renvoie le cas échéant les erreurs de compilation
+				\item En l'absence d'erreurs, le compilateur produit le fichier PDF ou PostScript
+      \end{enumerate}
+      
+    	\end{frame}
+
+
+\section{Avantages et inconvénients}
+  
+      \begin{frame}[containsverbatim]
+      \frametitle{Les avantages de \latex}
+      
+      \latex permet de concentrer l'effort du rédacteur sur le contenu et non sur la mise en forme~: la mise en forme découle directement du plan du document.  
+      
+      Le rendu est assez unique et permet d'obtenir des documents extrêmement propres notamment pour les fonctions mathématiques. 
+      
+      Les logiciels sont disponibles sur pratiquement toutes les plateformes existantes : \Windows, \Mac, \Linux, \emph{Solaris}, ...
+
+    	\end{frame}
+
+     \begin{frame}[containsverbatim]
+      \frametitle{Les avantages de \latex}
+
+			Comme c'est un langage de programmation, le rendu correspond exactement à ce que l'utilisateur a spécifié.  
+						
+			Comme c'est un langage il est possible de~:
+			\begin{itemize}
+				\item reproduire fidèlement un document (depuis un modèle de document par exemple)
+				\item transmettre le document brut qui se compilera sur n'importe quelle plateforme de la même façon
+				\item automatiser les processus
+				\item ...
+			\end{itemize}
+
+    	\end{frame}
+
+      \begin{frame}[containsverbatim]
+      \frametitle{Les avantages de \latex}
+
+			Et il y'a les maths... \'Ecrit par un mathématicien, écrire des maths en \latex est rapide et confortable.
+			
+			Et c'est un logiciel libre~:) Donc gratuit, maintenu par une communauté de programmeurs actives, documentation abondante sur Internet, ... 
+
+    	\end{frame}
+
+      \begin{frame}[containsverbatim]
+      \frametitle{Les inconvénients de \latex}
+
+			\begin{itemize}
+				\item \latex est un langage et nécessite donc un apprentissage
+				\item changer radicalement la présentation par rapport aux présentations par défaut est une tâche parfois lourde
+				\item \latex repose sur des fichiers texte ce qui suppose quelques acrobaties entre les formats de fichiers texte (Latin1, ISO, UTF-8, ...) 
+			\end{itemize}		
+
+    	\end{frame}
+
+\section{Comment faire du \latex ?}
+
+			\begin{frame}[containsverbatim]
+      \frametitle{Sur le principe...}
+
+				Le fichier texte peut être créé et/ou modifié par n'importe quel éditeur de texte. 
+				
+				Puis dans l'interpréteur de ligne de commande, vous appelez un des compilateurs~: 
+				\begin{description}
+					\item [latex,dvips] pour passer du fichier texte au fichier PostScript
+					\item [pdflatex] pour passer du fichier texte au fichier PDF
+				\end{description}
+
+				Le nom du compilateur peut varier selon les plates-formes et la version de \latex utilisée.
+
+    	\end{frame}
+    	    	
+			\begin{frame}[containsverbatim]
+      \frametitle{Sur le principe...}
+
+				Pour un fichier texte \emph{monfichier.tex}, cela donnerait dans l'interpréteur ligne de commande sous Windows (Mik\TeX)~:
+\code
+pdflatex monfichier.tex
+\end{Verbatim}				
+
+			pour obtenir depuis le fichier \og~monfichier.tex~\fg le fichier PDF correspondant.
+
+    	\end{frame}
+    	
+			\begin{frame}[containsverbatim]
+      \frametitle{En vrai...}
+
+			Les fichiers \latex ne s'éditent pas avec le bloc-notes de \Windows... 
+			
+			Des éditeurs beaucoup plus conviviaux sont disponibles pour créer et modifier des fichiers \latex. Ils permettent d'éditer confortablement les fichiers et de compiler les fichiers sans passer par un interpréteur de commande.
+
+    	\end{frame}
+
+			\begin{frame}[containsverbatim]
+      \frametitle{Les éditeurs de texte intelligents}
+
+			Pourquoi utiliser ces éditeurs plutôt que le bloc-note ?
+			\begin{itemize}
+				\item Ils permettent de différencier visuellement les commandes \latex du texte \og~brut~\fg
+				\item Ils permettent de ne pas passer par la console pour compiler
+				\item Ils apportent une aide (raccourcis, génération de code \latex, ...) lors de l'édition
+				\item Beaucoup d'entre d'eux permettent d'utiliser et/ou de modifier l'encodage
+
+			\end{itemize}
+			
+			Des éditeurs beaucoup plus conviviaux sont disponibles pour créer et modifier des fichiers \latex.
+
+    	\end{frame}
+
+\section{Les éditeurs améliorés pour \latex}
+
+			\begin{frame}[containsverbatim]
+      \frametitle{En vrai...}
+
+				Les éditeurs sont parfois appelés également environnements de développement intégrés (IDE). 
+				
+				Quelques exemples...
+				\begin{itemize}
+					\item \href{http://www.xm1math.net/texmaker/}{\TeX Maker}
+					\item \href{http://www.tug.org/texworks/}{\TeX Works} (toutes plates formes)
+					\item	\href{http://www.texniccenter.org/}{\TeX nicCenter} Windows
+					\item	\href{https://www.gnu.org/software/emacs/}{Emacs} (toutes plates formes)
+					\item ...
+				\end{itemize}
+				
+    	\end{frame}
+    	    	
+			\begin{frame}[containsverbatim]
+      	\frametitle{\href{http://www.xm1math.net/texmaker/}{\TeX Maker}}
+      	
+			\TeX Maker est très bien. Lorsque vous compilez de \latex en Postscript, il fait apparaître le log et surtout les erreurs de compilation de façon très claire.
+			
+			Il supporte les formats Latin1 et Unicode ce qui est plutôt bien pour \Windows et \Mac. En effet, dans les préférences, on peut définir le type d'encodage que l'on souhaite utiliser.
+			
+    	\end{frame}
+    	    	
+			\begin{frame}[containsverbatim]
+      	\frametitle{\href{http://www.tug.org/texworks/}{\TeX Works}}
+
+			\TeX Works est similaire à \TeX Maker avec quelques fonctionnalités supplémentaires. 
+			
+			Une version portable, sans installation est disponible sur le site.
+
+    	\end{frame}
+
+			\begin{frame}[containsverbatim]
+      	\frametitle{\href{http://www.texniccenter.org/}{\TeX nicCenter}}
+
+			\TeX nicCenter a un gros avantage c'est qu'il compile la totalité du fichier \latex même en présence d'erreurs... C'est le plus riche en matière de personnalisation de la compilation. 
+			
+			Il ne corrige pas vos fautes, mais vous permet de regarder en une seule passe s'il y a une ou plusieurs erreurs dans votre fichier \latex~: il suffit d'appuyer sur \emph{F9} et vous passez d'une erreur à l'autre tout au long du fichier log. C'est très pratique. 
+			
+			En revanche, il ne supporte pas les fichiers Unicode ce qui peut poser problème.
+
+    	\end{frame}
+
+\section{Compiler un document \latex sur son poste de travail}
+
+			\begin{frame}[containsverbatim]
+      \frametitle{Oui mais le compilateur ?}
+
+				Pour compiler un document \latex sur votre poste de travail, vous avez la possibilité d'utiliser une version portable ou, si vous avez les droits administrateurs sur votre poste, d'installer une \og~distribution~\fg.
+				
+				Une distribution installe de nombreux compilateurs, logiciels, packages et modifie les valeurs système pour permettre une utilisation optimale de \latex.
+
+    	\end{frame}
+    	
+			\begin{frame}[containsverbatim]
+      \frametitle{FramaKey, Paquet \latex}
+    	
+				La première possibilité est la \href{http://framakey.org/Pack/PackLatex}{FramaKey}\footnote{http://framakey.org/Pack/PackLatex}. C'est une version portable. Elle ne nécessite aucune installation et n'exige pas que vous soyez administrateur de votre poste. 
+    	
+    	Il suffit de dé-zipper le fichier téléchargé sur le site de Framasoft. Les utilitaires et les compilateurs minimaux sont présents et correctement configurés.
+			
+			{ \bfseries La Framakey \latex n'est pas très bien mise à jour. Le résultat est qu'il est difficile de s'en servir car les paquets correspondant à la version de \latex sur la clef n'existe plus en ligne.
+			
+			La FramaKey est donc à éviter pour l'instant \dots }
+
+    	\end{frame}
+
+			\begin{frame}[containsverbatim]
+      \frametitle{\MikTeX, version portable}
+    	
+				La version portable de \MikTeX permet de réaliser des documents \latex. Elle ne nécessite ni droits administrateurs ni installation comme la FramaKey.
+    	
+    	Il suffit de dé-zipper le fichier téléchargé sur le site de Framasoft. Les utilitaires et les compilateurs minimaux sont présents et correctement configurés. La page indique comment utiliser la version portable. Notamment le lancement de l'environnement avec la petite application dans la barre des tâches.
+			
+			Le fichier est téléchargeable \href{http://miktex.org/portable}{\textcolor{blue}{ici}}.
+
+    	\end{frame}
+
+			\begin{frame}[containsverbatim]
+      \frametitle{Les distributions}
+
+				La seconde possibilité est d'installer une distribution. Les distributions les plus communes par plate-formes sont~:
+				
+				\begin{itemize}
+					\item{\Windows} \href{http://www.tug.org/mactex/}{\MikTeX}
+					\item{\Mac} \href{http://www.tug.org/mactex/}{MacTeX}
+					\item{\Linux}	\href{http://www.tug.org/texlive/}{TeXLive}
+				\end{itemize}
+				
+    	\end{frame}
+
+			\begin{frame}[containsverbatim]
+      \frametitle{\MikTeX}
+
+				L'installation de \MikTeX, réservée aux administrateurs de leur poste. Par conséquent elle ne sera pas décrite ici. Sur demande, un document d'aide est toutefois fourni avec les documents du cours.
+							
+			\end{frame}    	
+    	
+% Insérer un glossaire %
+    	
+\section{Les parties du code}
+
+      \begin{frame}[containsverbatim]
+      	\frametitle{Structure d'un fichier \latex}
+
+				\latex est un langage à balise qui n'est pas sans rappeler HTML. 
+				
+				Comme HTML, il y a une première partie, en amont du texte qu'on appele \textit{preambule}. Il correspond au \emph{header} de l'HTML. 
+				
+				Après une commande \latex spécifique, la seconde partie du document commence~: c'est le corps du document contenant ce qui va être lisible dans le document final.
+				
+				Puis une commande \latex termine le document.
+
+			\end{frame}
+				
+      \begin{frame}[containsverbatim]
+      \frametitle{Structure d'un fichier \latex}
+				
+				La définition minimale d'un document \latex est~:
+				
+\code
+\documentclass{article}
+...
+\begin{document}
+...
+\end{document}
+\end{Verbatim}
+				
+    	\end{frame}
+
+      \begin{frame}[containsverbatim]
+      \frametitle{Le préambule}
+
+\code
+\documentclass{article}
+\usepackage[latin1]{inputenc}
+\usepackage[french]{babel}
+\title{Introduction à \latex}
+\author{Pascal Bessonneau}
+\date{DEPP, 12/2010.}
+\definecolor{myblue}{rgb}{0,0.31,0.64}
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+	{-3.5ex \@plus -1ex \@minus -.2ex}%
+	{2.3ex \@plus.2ex}
+\end{Verbatim}
+
+    	\end{frame}
+
+      \begin{frame}[containsverbatim]
+      \frametitle{Le préambule}
+
+				Le préambule va contenir~: 			
+				\begin{enumerate}
+					\item	La liste des paquets que doit charger \latex
+					\item La définition ou la redéfinition des couleurs
+					\item La définition ou la redéfinition des commandes
+					\item	Les informations concernant le titre, l'ouvrage, ...					
+					\item ...
+				\end{enumerate}
+				
+    	\end{frame}
+
+			\begin{frame}[containsverbatim]
+				\frametitle{Le corps du document}
+			
+				Dans cette partie, sauf exception, le texte va être compilé et va apparaitre dans le document.
+				
+				Cette partie est définie par les commandes~: 			
+				
+\code
+...
+\begin{document}
+\maketitle
+...
+La preuve qu'il y a des êtres intelligents...
+essayés de nous contacter.
+...
+\ end{document}
+\end{Verbatim}				
+			
+			\end{frame}
+
+			\begin{frame}[containsverbatim]
+				\frametitle{\latex est un langage...}
+				
+				\latex est un langage proche d'un langage de programmation par conséquent il faut respecter des conventions simples~:
+				\begin{itemize}
+					\item pour que le compilateur \latex puisse interpréter correctement les commandes
+					\item pour vous faciliter le travail de recherche et corrections des erreurs
+					\item pour faciliter la vie du(des) relecteur(s) du code
+				\end{itemize}					
+				
+			\end{frame}
+
+			\begin{frame}[containsverbatim]
+				\frametitle{\latex est un langage...}
+				
+				Par conséquent on retiendra les règles suivantes~: 
+				\begin{itemize}
+					\item toutes les commandes \latex sont à taper en minuscules (en fait c'est une obligation \latex est sensible à la casse)
+					\item à l'intérieur et à l'extérieur du document, ne pas hésiter à laisser des espaces ou des tabulations pour augmenter la lisibilité
+					\item ajouter des commentaires pertinents pour la relecture ou le débogage
+				\end{itemize}
+				
+			\end{frame}
+
+\section{Les packages}
+							
+      \begin{frame}[containsverbatim]
+      \frametitle{Les packages}
+
+	    	Les paquets (ou \emph{packages}) sont un ensemble de macro-commandes. Ils sont un peu à l'image des macros INSEE de SAS ou des paquets de R.
+	    	
+	    	Ces macros permettent de réaliser des mises en pages avancées, de changer la langue du document, de créer des tableaux personnalisés, ...
+	    	
+	    	Ces ensembles de commandes \tex et/ou \latex permettent de réaliser des opérations sur le document ou les données associées.
+	    	
+	    	Vous devez les appeler dans le préambule. 
+	    	
+			\end{frame}	    	
+	    
+	    \begin{frame}[containsverbatim]
+      \frametitle{Les packages}
+	
+	    	Les paquets sont au nombre de quelques milliers. Le problème est souvent de trouver le paquet qui fait ce que l'on souhaite. 
+	    	
+	    	Les paquets officiels (stables) sont disponibles sur le site \href{http://www.ctan.org/}{Comprehensive \tex~Archive Network}.
+    	    	
+    	\end{frame}
+			
+      \begin{frame}[containsverbatim]
+      \frametitle{Les packages}
+
+				Lors de l'installation sous \Windows avec Mik\tex, on peut installer (presque) l'ensemble des paquets (ce qui représente 1,2 Go).
+				
+				Sinon on peut les installer à la demande... Si vous utilisez un paquet non présent sur l'ordinateur, l'éditeur \latex vous proposera automatiquement (avec le bon réglage) de l'installer.
+    	    	
+    	\end{frame}
+
+    	\begin{frame}[containsverbatim]
+    	\frametitle{Le paquet \textit{inputenc}}
+    	
+    	A retenir et à placer dans tous vos documents~: 
+    	
+\code    	
+\usepackage[latin1]{inputenc}
+\end{Verbatim}
+
+\code    	
+\usepackage[utf8]{inputenc}
+\end{Verbatim}
+
+Le paquet \emph{inputenc} permet de définir le format de fichier texte (Latin1, UTF-8, ...). Il est important car il permettra à \latex de reconnaitre notamment les caractères accentués.
+			
+		\end{frame}
+
+    	\begin{frame}[containsverbatim]
+    	\frametitle{Le paquet \textit{babel}}
+    	
+    	A retenir et à placer dans tous vos documents rédigés en français~: 
+    	
+\code    	
+\usepackage[french]{babel}
+\end{Verbatim}
+
+			Le paquet Babel permet de \textit{franciser} les guillemets, les césures, les accents, ... 
+						
+		\end{frame}
+		
+    	\begin{frame}[containsverbatim]
+    	\frametitle{Un package tout à fait inutile}
+    	
+    	Nous verrons des packages utiles mais voilà un exemple de package tout à fait inutile donc indispensable~: \latex Coffee Stains
+    	
+    	\cofeAm{1}{0.5}{0}{2.5cm}{0cm}
+    				
+		\end{frame}
+
+\section{L'encodage des caractères}
+
+		\begin{frame}[containsverbatim]
+      \frametitle{L'encodage des caractères en quelques mots...}
+
+	L'encodage des caractères provient du conflit entre les limites qui étaient imposées par les ordinateurs et la diversité des alphabets et des glyphes utilisés dans chaque langue.
+
+Ainsi, les premiers jeux de caractères codés sur peu de bits ne contenait pas les caractères accentués. Puis le codage des caractères a été réalisé sur un plus grand nombre de bits, offrant la possibilité de coder (presque tous) les caractères d'une langue.
+
+Et ainsi de suite jusqu'à parvenir aux systèmes actuels qui permettent le codage d'un grand nombre de glyphes.
+
+    	\end{frame}
+    	   	
+			\begin{frame}[containsverbatim]
+      \frametitle{L'encodage des caractères en quelques mots...}
+
+ANSI, ISO-8859-x, Unicode... sont autant de normes utilisées pour représenter les caractères d'une langue.
+
+Aujourd'hui, si \Windows XP et certains logiciels utilise la norme ISO \textit{Western character}, ie. ISO-8859-1,  la plupart des systèmes décents utilise l'Unicode.
+
+Unicode, plus récent et offrant un très large panel de caractères, est à préférer. Seul bémol, Unicode est dérivé en 8bits, 16bits et 32bits. 
+
+    	\end{frame}
+
+			\begin{frame}[containsverbatim]
+      \frametitle{L'encodage des caractères en quelques mots...}
+
+Pourquoi parler de l'encodage ? La raison est qu'il faudra lors des échanges de fichiers s'assurer d'utiliser le même encodage sous peine de voir des caractères exotiques ou des erreurs de compilation apparaître.
+
+L'autre exemple type est le copier-coller. Le copier-coller de Word dans une éditeur de texte peut s'avérer problématique. 
+
+    	\end{frame}
+
+			\begin{frame}[containsverbatim]
+      \frametitle{Indiquer à \latex d'utiliser un autre format d'encodage}
+				
+				Il suffit de préciser l'encodage en début de document (le préambule)~:
+\code
+\usepackage[latin1]{inputenc}
+\end{Verbatim}
+
+			Ici l'encodage est en \emph{latin1} (ISO-8859-1). \emph{utf8}) correspond à Unicode (UTF8).
+				
+    	\end{frame}
+
+			\begin{frame}[containsverbatim]
+      \frametitle{La conversion de fichier texte}
+				
+				Des utilitaires comme \href{http://notepad-plus-plus.org/}{Notepad++} peuvent vous permettre de convertir le texte d'un format à l'autre. 
+				
+				Sinon des langages de programmation comme R, Perl et Python permettent de le faire également.
+				
+				Pour faire de l'aide sur ce point, le terme exacte est translittération plutôt que conversion.
+				
+    	\end{frame}
+
+\end{document}
+
+

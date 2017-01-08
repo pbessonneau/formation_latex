@@ -1,0 +1,45 @@
+% Compilation Document HTML
+\begin{tikzpicture}
+	\tikzstyle{point_blue}=[circle,fill=blue!25,minimum width=5em,drop shadow]
+	\tikzstyle{point_green}=[circle,fill=green!25,minimum width=5em,drop shadow]
+	\tikzstyle{rect_blue}=[rectangle,rounded corners=3pt,fill=blue!25,minimum width=5em,drop shadow]
+	
+	\tikzstyle{code_latex}=[rectangle,fill=blue!10,minimum width=4.5em]
+	\tikzstyle{code_r}=[rectangle,fill=blue!25,minimum width=4.5em]
+	
+	\tikzstyle{quelconque}=[rectangle]
+	
+	\tikzstyle{document_rnw}=[rectangle,fill=gray!25,minimum width=5em,minimum height=12em,drop shadow,anchor=north]
+	\tikzstyle{document_tex}=[rectangle,fill=blue!10,minimum width=5em,minimum height=12em,drop shadow,anchor=north]
+	\tikzstyle{document_pdf}=[rectangle,fill=red!25,minimum width=5em,minimum height=12em,drop shadow,anchor=north]
+	
+	\tikzstyle{fleche}=[->,>=latex,line width=0.2em]
+
+	% Document Markdown
+	\node[quelconque] (RNW_text) at (0,1em) {\textbf{.Rhtml}};
+	\node [code_latex] (code_latex1) at (0,-1em) {HTML};
+	\node [code_r] (code_r1) at (0,-3em) {\Rcode};
+	\node [code_latex] (code_latex2) at (0,-5em) {HTML};
+	\node [code_r] (code_r2) at (0,-7em) {\Rcode};
+	\node [code_latex] (code_latex3) at (0,-9em) {HTML};
+	\begin{pgfonlayer}{background}
+		\node[document_rnw] (RNW) at (0,2em) {};
+	\end{pgfonlayer}
+
+	% Moteur R	
+	\node[point_blue] (R) at (10em,-4em){ \includegraphics[height=3em,width=4em]{logo_R} };
+	
+	% Document tex
+	\begin{pgfonlayer}{background}
+		\node[document_tex] (TEX) at (20em,2em) {\Large HTML};
+	\end{pgfonlayer}
+	
+	% Flèches
+	\draw[fleche] (RNW)--(R);
+	\draw[fleche] (R.north) |- (TEX.north west) node[near end,above,sloped]{\textcolor{black}{\textbf{Sweave+R2HTML}}};
+	\draw[fleche] (R.south) |- (TEX.south west) node[near end,below,sloped]{\textcolor{black}{\textbf{knitr(Markdown/HTML)}}};
+
+\end{tikzpicture}
+
+
+

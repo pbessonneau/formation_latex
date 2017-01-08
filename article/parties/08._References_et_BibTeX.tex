@@ -1,0 +1,202 @@
+\section{Faire référence à des éléments du document}
+
+  		\subsection{Remarques sur la compilation}
+  		
+Lors de la compilation \latex ne crée pas par défaut tous les fichiers nécessaires à tous les types de référence. Notamment pour les références bibliographiques, il faudra appeler des logiciels supplémentaires comme \textit{makeIndex} et \textit{bibtex}. 
+
+Ces "options" de compilation sont proposées par tous les logiciels dédiés à \latex mais il faudra penser à ces commandes par exemple si on compile en ligne de commande.
+
+
+  		\subsection{Figures ou tableaux}
+  		
+Au moment de la création du tableau ou de la figure, on a utilisé la commande~:
+ 		
+\tinycode
+\label{Tableau_Niveaux}
+\end{Verbatim}
+
+Il suffit alors d'appeler \emph{ref} avec le nom de l'étiquette pour
+avoir le numéro de l'élement et \emph{pageref} pour avoir le numéro de page.
+
+\tinycode
+Le Tableau \ref{Tableau_Niveaux}
+page \pageref{Tableau_Niveaux} le tableau...
+\end{Verbatim}
+
+
+  		\subsection{Faire référence à une section}
+  		
+Au moment de la création de l'appel de la section, il suffit d'ajouter
+une commande \emph{label}~:
+ 		
+\tinycode
+\section{Ma section}\label{MaSection}
+...
+Vu en section \ref{MaSection}
+\end{Verbatim}
+
+
+\section{Créer le fichier de référence bibliographiques}
+
+  		\subsection{Un fichier Bib\TeX}
+  		
+  		Un fichier Bib\TeX est un fichier texte de ce type :
+  		
+\tinycode
+@BOOK{Holland2007,
+	title={Linking and aligning scores and scales},
+	publisher = {Springer},
+	year=2007,
+	author={{N.J.} Dorans and M. Pommerich and {P.W.} Holland}
+}
+\end{Verbatim}
+
+  	
+  		\subsection{L'entrée décomposée...}
+
+			Après le \at, on indique le type de support. Puis on donne un nom unique qui sera utilisé pour appeler la référence.  		
+			
+\tinycode
+@BOOK{Holland2007,
+\end{Verbatim}
+		
+		Ensuite on entre le contenu de chaque mot-clef, séparé par des virgules, avec des accolades.
+
+\tinycode
+	title={Linking and aligning scores and scales},
+	publisher = {Springer},
+	year=2007,
+	author={{N.J.} Dorans and M. Pommerich and {P.W.} Holland}
+}
+\end{Verbatim}  		
+  	
+
+
+		Contrairement à \latex qui permet le support des caractères accentués, dans bibtex il est plus simple d'utiliser les commandes \latex pour créer les caractères accentuées.
+		
+		C'est-à-dire \textbackslash', \textbackslash`, \dots
+		
+		Attention également pour le n° du volume, qui s'écrira \textbackslash textordmasculine.
+  	
+  	
+
+		Pour les auteurs, je vous conseille de copier le style d'entrée précisé car il correspond au style de l'American Psychology Association (APA).
+		
+\tinycode
+	author={{N.J.} Dorans and M. Pommerich and {P.W.} Holland}
+\end{Verbatim}  		
+		
+		Le \emph{and} est reconnu par Bib\tex et permet de présenter correctement les noms et les abbréviations pour les noms d'auteurs.
+  	
+
+
+  		\subsection{Le rôle des accolades}
+
+		Les accolades permettent de délimiter clairement les champs. Cette syntaxe est utilisée par défaut par JabRef.
+		
+		Les accolades permettent également de prévenir des ambiguïtés dans les noms des auteurs. Ici elles ont été utilisées pour grouper les initiales des prénoms mais sont également utiles pour les noms de famille composés.
+		
+\tinycode
+	author = {M. {von Davier} and C. H. Carstensen}
+\end{Verbatim}  		
+ 	
+
+  		\subsection{Un fichier Bib\TeX}
+
+			Il existe plusieurs types de documents :
+			
+			\begin{description}
+				\item[book] un livre
+				\item[article] un article de périodique
+				\item[conference] un intervention lors d'une conférence
+				\item[inbook] une partie d'un livre.
+				\item [etc.]
+			\end{description}
+			
+			Chaque type a des champs optionnels et des champs requis.
+			
+			
+  		\subsection{Les champs obligatoires (article)}
+
+			Pour un article par exemple les champs requis sont :
+			\begin{itemize}
+				\item author
+				\item title
+				\item journal
+				\item year
+			\end{itemize}
+				
+
+  		\subsection{Les champs facultatifs (article)}
+			
+			Les champs optionnels sont :
+			
+			\begin{itemize}
+				\item volume
+				\item number
+				\item pages
+				\item month
+				\item note
+				\item key
+			\end{itemize}
+			
+
+\section{Appeler une référence bibliographique}
+
+  		\subsection{Comment citer ?}
+			
+			Un autre type Pour citer l'ouvrage, il suffit alors d'utiliser la commande~: 
+			
+\tinycode
+\cite{Holland2007}
+ou
+\citeA{Holland2007}
+\end{Verbatim}		
+
+
+			
+\begin{description} 
+	\item[\textbackslash cite] Les études psychométriques, enrichies par les questionnaires sur les pratiques informatiques, pourront probablement apporter des informations sur la perception et les difficultés propres à chaque type de tâches et/ou items. Nous pensons par exemple à l'analyse avec des modèles de Rasch incluant des classes latentes \cite{Davier2007} ou des modèles diagnostiques.
+	\item[\textbackslash citeA] Les études psychométriques, enrichies par les questionnaires sur les pratiques informatiques, pourront probablement apporter des informations sur la perception et les difficultés propres à chaque type de tâches et/ou items. Nous pensons par exemple à l'analyse avec des modèles de Rasch incluant des classes latentes \citeA{Davier2007} \nocite{Holland2007} ou des modèles diagnostiques.
+\end{description}
+
+
+  		\subsection{Et la biblio complète ?}		
+		
+		On appele la biblio comme ça~: 
+		
+\tinycode
+\bibliographystyle{apacite} % pour le style APA
+\bibliography{reference}
+\end{Verbatim}		
+
+		Le style est celui de l'APA et \emph{reference} est le nom du fichier Bib\tex (en fait \emph{reference.bibtex}).
+		
+
+  		\subsection{Le résultat}
+  		
+Les autres styles de bibliographie sont bien décrits dans le document dans le \href{http://en.wikibooks.org/wiki/LaTeX/Bibliography_Management}{Wikibooks sur \LaTeX}.
+
+
+  		\subsection{Pour imprimer la totalité des références du fichier Bib\TeX}
+
+		Il suffit dans le document de placer cette commande~:
+
+\tinycode
+\nocite{*}
+\end{Verbatim}
+		
+
+  		\subsection{JabRef}		
+  		
+  		Avec Mik\tex et Mac\tex, est installé automatiquement une interface graphique, JabRef, qui permet de générer et de gérer des fichiers \emph{bib}.
+  		
+
+
+\bibliographystyle{apacite}		% pour le style APA
+\bibliography{08._References_et_BibTeX}
+\nocite{*}
+
+  	  					
+
+

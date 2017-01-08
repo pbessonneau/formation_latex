@@ -1,0 +1,440 @@
+\input{header}
+
+\subtitle{Langage et structure}
+
+\begin{document}
+
+  \begin{frame}
+  \titlepage
+  \end{frame}
+
+  \begin{frame}<beamer>
+    \frametitle{Plan}
+    \tableofcontents
+  \end{frame}
+
+
+\section{Le langage \latex}
+				
+		\begin{frame}[containsverbatim]
+  	\frametitle{Le langage}
+
+			\latex utilise des caractères spéciaux que le compilateur va reconnaitre et utiliser pour baliser le texte.
+			
+			Ainsi les caractères \textbackslash, \$, \&, \_, \{, \}, \%, [, ], \textasciitilde\ sont réservés. Ils ont une signification particulière. 
+
+			Par exemple~:
+			\begin{center}
+				\textbackslash commande [ \emph{options} ] \{ \emph{argument} \}
+			\end{center}
+
+			\emph{commande} va être reconnue comme une commande ou macro-commande \latex.
+			
+		\end{frame}			
+
+  	\begin{frame}[containsverbatim]
+  	\frametitle{Le langage}
+    	
+    	Quand la commande prend un argument obligatoire, la syntaxe devient~:
+    	
+			\begin{center}
+				\textbackslash commande\{ \emph{argument} \}
+			\end{center}
+			
+			
+    	Quand la commande prend plusieurs arguments obligatoires, la syntaxe devient~:
+    	
+			\begin{center}
+				\textbackslash commande\{ \emph{argument1} \}\{ \emph{argument2} \}...
+			\end{center}
+			
+		\end{frame}		
+
+
+  	\begin{frame}[containsverbatim]
+  	\frametitle{Le langage}
+    	
+    	Lorsque qu'un argument est optionnel alors il est entre crochets~:
+    	
+			\begin{center}
+				\textbackslash commande [ \emph{options} ] \{ \emph{paramètre} \}
+			\end{center}
+
+			L'ajout d'une * permet dans certains cas de modifier un peu le comportement d'une fonction.
+	
+		\end{frame}		
+		
+  	\begin{frame}[containsverbatim]
+  	\frametitle{Le langage}
+
+			Un document \latex très simple~:
+			
+\code
+% Document 01
+\documentclass{article}
+\usepackage[latin1]{inputenc}
+\usepackage[french]{babel}
+\title{Introduction à \latex}
+\author{Pascal Bessonneau}
+\date{DEPP, 12/2010.}
+\begin{document}
+\maketitle
+La preuve qu'il y a des êtres intelligents...
+\end{document}
+\end{Verbatim}			
+			
+		\end{frame}		
+
+  	\begin{frame}[containsverbatim]
+  	\frametitle{Les environnements}
+		
+	Les environnements vont être définis comme suit~:
+			
+\code
+\begin{nom}
+...
+\end{nom}
+\end{Verbatim}
+
+		\end{frame}		
+
+  	\begin{frame}[containsverbatim]
+  	\frametitle{Les environnements}
+		
+			Les types d'environnements sont nombreux en \latex~: listes, code source, \dots\ Ils permettent de spécifier un ensemble de propriétés pour les objets à l'intérieur de l'environnement.
+
+			Ils commencent par un \textbackslash begin et se termine par un \textbackslash end suivi dans les deux cas par le type d'environnement.
+						
+		\end{frame}		
+		
+  	\begin{frame}[containsverbatim]
+  	\frametitle{Les groupes}
+
+			Une syntaxe légèrement différente permet de définir des groupes. Cette syntaxe se rapproche de celle de R ou Perl~:
+			
+\code
+{ \mot-clef
+...
+}
+\end{Verbatim}
+
+			Ce type de syntaxe se retrouve notamment pour les changements de police.
+						
+		\end{frame}		
+
+  	\begin{frame}[containsverbatim]
+  	\frametitle{Les caractères réservés}
+
+		En plus des caractères réservés vus précédemment, ils existent d'autres caractères ayant une signification pour \latex comme le @ par exemple. Ils sont utilisés par \latex pour l'appel de variables privées, les maths, \dots
+
+		Dans le tableau \ref{car:reserves}, la liste des correspondances pour ces caractères est donné pour les inclure en tant que tel dans un texte.
+		
+		\begin{center}
+			\begin{figure}
+				\scalebox{0.8}{
+				\begin{tabular}{ccl}
+					{ \bf Caractère } & { \bf Façon de l'écrire en \latex } & { \bf Fonction }\\
+					\hline
+					\$ & \textbackslash\$ & sert pour  les mathématiques\\
+					\& & \textbackslash\& & sert pour les tableaux et les maths\\
+					\_ & \textbackslash\_ & sert en mode mathématique\\
+					\{ & \textbackslash\{ & sert pour les appels de fonction\\
+					\} & \textbackslash\} & sert pour les appels de fonction\\
+					$[$ & $[$ & sert pour les appels de fonction\\
+					$]$ & $]$ & sert pour les appels de fonction\\
+					\% & \textbackslash\% & lance le mode commentaire\\
+				\end{tabular}}
+			\end{figure}
+		\end{center}
+		
+		\end{frame}
+		
+		\begin{frame}[containsverbatim]
+  	\frametitle{Les caractères accentués}
+
+		Les caractères accentués sont gérés par \latex en spécifiant correctement l'encodage des caractères. Toutefois pour les majuscules accentuéesil suffit pour le français d'utiliser les commandes suivantes~:
+		
+		\begin{center}
+			\begin{tabular}{cc}
+				Accents et graphèmes & code \latex\\
+				\'E & \textbackslash'E\\
+				\`E & \textbackslash`E\\
+				\^A & \textbackslash\textasciicircum a\\
+				\"I & \textbackslash"I\\
+				\c C & \textbackslash c\ C\\
+				c\oe ur & c\textbackslash oe\ ur\\
+				C\OE ur & C\textbackslash OE\ UR\\
+				\ae & \textbackslash ae\\
+				\AE & \textbackslash AE\\
+			\end{tabular}
+			
+		\end{center}
+		
+	\end{frame}
+
+	\begin{frame}[containsverbatim]
+  	\frametitle{Les caractères accentués}
+		
+		Pour une liste exhaustive des commandes disponibles, cette \href{http://www.tuteurs.ens.fr/unix/accents.html}{page} est très bien faite. 
+		
+		Ces commandes fonctionnent également pour les minuscules. Ceci est intéressant de le savoir notamment dans le cas où l'encodage est imposé comme les fichiers bibtex (références bibliographiques).
+				
+		\end{frame}
+				
+		\begin{frame}[containsverbatim]
+  	\frametitle{Les caractères spéciaux}
+
+		\href{http://www.tex.ac.uk/tex-archive/info/symbols/comprehensive/symbols-a4.pdf}{The Comprehensive \latex~Symbols list} est un document précieux... Il contient tous les caractères spéciaux accessibles y compris dans certains paquets comme \emph{amsmath}. 
+		
+		Il y en a plusieurs milliers~: 
+		\copyright, 		\textdagger, 		\emgma, 		\AltGr, 		\Checkmark, 		\SnowflakeChevron, 		\dots		
+		\end{frame}		
+
+  	\begin{frame}[containsverbatim]
+  	\frametitle{La gestion des espaces et des tabulations}
+
+			Les espaces sont automatiquement gérés par le compilateur qui supprime les espaces et les tabulations excédentaires~: 
+\code
+La preuve qu'il y a des êtres...\\							
+La         preuve         qu'il y a des  êtres...\\
+\end{Verbatim}
+			
+			donne\\
+			
+La preuve qu'il y a des êtres...\\							
+La         preuve         qu'il y a des  êtres...\\
+
+		\end{frame}		
+		
+  	\begin{frame}[containsverbatim]
+  	\frametitle{Sauts de ligne et commentaires}
+
+		Quand vous laissez une ligne blanche, \latex suppose que vous passez au paragraphe suivant. Un paragraphe correspond donc à un blocs de lignes sans lignes vides. 
+		
+		En cas de besoin, vous pouvez forcer un saut de ligne en utilisant la commande \textbackslash\textbackslash comme dans l'exemple précédent.
+
+		Des commentaires peuvent être ajoutés en début de ligne ou plus loin... Tout ce qui suit un \% est un commentaire.
+
+		\end{frame}		
+
+\section{Type de document}
+ 
+      \begin{frame}[containsverbatim]
+      \frametitle{documentclass}
+
+				Le \emph{documentclass} va donner l'allure générale du document~: 
+				\begin{itemize}
+					\item article~: pour les articles scientifiques, les présentations, les rapports courts, la documentation de programme, les invitations,...
+					\item proc~: une classe pour les actes de conférences basé sur \emph{article}
+					\item minimal~: Il contient seulement les réglages pour la dimension de la page et une police de base. Il est conçu plutôt pour du déboguage
+					\item report~: pour les rapports plus longs contenant quelques chapitres, les petits livres, les thèses, ...
+					\item book~: pour les livres
+					\item slides~: pour les diapositives. La classe utilise des grandes lettres sans serif
+					\item memoir~: pour changer sensiblement la présentation du document. Ce type est basé sur le type \emph{book} mais vous pouvez créer n'importe quel document avec
+					\item letter~: pour les lettres
+				\end{itemize}					
+				
+    	\end{frame}
+
+      \begin{frame}[containsverbatim]
+      \frametitle{documentclass}
+
+				Il existe d'autres \emph{documentclass} développés et qui sont disponibles sous forme de paquets ou de fichiers de styles~:
+				\begin{itemize}
+					\item Beamer, pour les présentations
+					\item Prosper, idem
+					\item Modèle de revue (ex: \emph{Journal of Statistical Software})
+					\item ...
+				\end{itemize}
+			
+    	\end{frame}
+
+      \begin{frame}[containsverbatim]
+      \frametitle{Les mots-clefs}
+
+			Associé au \emph{documentclass}, des mots-clefs permettent de remplir des champs prédéfinis~: auteur, titre, date, ...
+			
+			Attention, les mots-clefs prédéfinis dépendent du type de \emph{documentclass} que vous utilisez. Ils permettront d'une part de créer les titres et d'autre part de renseigner les champs des fichiers PDF créés. 
+
+			Il faut mémoriser la façon dont les renseignements sont entrés qui est classique sous \latex~: 
+			\begin{center}
+				\textbackslash commande \{ \emph{paramètre} \}
+			\end{center}
+
+    	\end{frame}
+    	
+  	\begin{frame}[containsverbatim]
+  	\frametitle{La structuration des documents}
+
+			il est plus difficile dur d'écrire un document non structuré avec \latex. En effet vous pouvez jouez un peu avec la typographie mais en fait la mise en forme des titres passe par une commande qui d'une part~: 
+			\begin{itemize}
+				\item	mets la mise en forme adaptée au niveau hiérarchique
+				\item ajoute une référence dans la table d'index afin de l'inclure dans la table des matières
+			\end{itemize}
+
+		\end{frame}		
+
+  	\begin{frame}[containsverbatim]
+  	\frametitle{La structuration~: book}
+  	
+  	Les niveaux hiérarchiques définis par défaut sont~:
+  	\begin{itemize}
+			\item \textbackslash part\{\}
+			\item \textbackslash chapter\{\}
+			\item \textbackslash section\{\}
+			\item \textbackslash subsection\{\}
+			\item \textbackslash subsubsection\{\}
+			\item \textbackslash paragraph\{\}
+			\item \textbackslash subparagraph\{\}
+		\end{itemize}			
+			
+		\end{frame}
+
+		\begin{frame}[containsverbatim]
+  	\frametitle{La structuration~: report}
+  	
+  	Les niveaux hiérarchiques définis par défaut sont~:
+  	\begin{itemize}
+	  	\item \textbackslash part\{\}
+	  	\item \textbackslash chapter\{\}
+	  	\item \textbackslash section\{\}
+	  	\item \textbackslash subsection\{\}
+	  	\item \textbackslash subsubsection\{\}
+	  	\item \textbackslash paragraph\{\}
+	  	\item \textbackslash subparagraph\{\}
+  	\end{itemize}			
+			
+		\end{frame}
+
+		\begin{frame}[containsverbatim]
+  	\frametitle{La structuration~: article}
+  	
+  	Les niveaux hiérarchiques définis par défaut sont~:
+  	\begin{itemize}
+			\item \textbackslash part\{\}
+			\item \textbackslash section\{\}
+			\item \textbackslash subsection\{\}
+			\item \textbackslash subsubsection\{\}
+			\item \textbackslash paragraph\{\}
+			\item \textbackslash subparagraph\{\}
+  	\end{itemize}			
+			
+		\end{frame}			
+
+		\begin{frame}[containsverbatim]
+  	\frametitle{La structuration~: letter}
+			
+			La structure est un peu différente et on ne retrouve que les commandes suivantes~: 
+			\begin{itemize}
+				\item \textbackslash signature\{\}
+				\item \textbackslash address\{\}
+				\item \textbackslash opening\{\}
+				\item \textbackslash closing\{\}
+			\end{itemize}					
+		
+		\end{frame}		
+
+  	\begin{frame}[containsverbatim]
+  	\frametitle{La table des matières}
+  	
+  	Une fois que le document contient la structure, il suffit de taper la commande...
+\code    
+\tableofcontents  	
+\end{Verbatim}
+...~pour imprimer la table des matières où on le souhaite.
+
+		\end{frame}
+		
+  	\begin{frame}[containsverbatim]
+  	\frametitle{Eviter le référencement}
+  	
+  	Si on ne veut pas qu'une \emph{section}, \emph{chapter}, ...  apparaisse dans la table des matières il faut utiliser une *~:
+
+\code    
+\section*{Mon titre de section}
+\end{Verbatim}  	
+  	
+  	Ce titre apparaitra dans le même style qu'un titre de section classique mais pas dans la table des matières.
+  	
+		\end{frame}
+
+\section{La compilation}
+		
+		\begin{frame}[containsverbatim]
+  		\frametitle{La compilation...}
+  	
+  		Entre le fichier texte et le fichier final, il y a une phase de compilation.
+  		
+  		Le principe est que le fichier va être interprété puis traduit au format PostScript ou PDF.
+  		
+  		Théoriquement cette phase se fait en ligne de commande. En pratique avec MiK\tex et \TeX nicCenter sur vos postes, il suffira d'un raccourci clavier pour appeler les programmes nécessaires. 
+  		
+		\end{frame}
+		
+		\begin{frame}[containsverbatim]
+  	\frametitle{Comprendre la compilation}
+  	
+  		\begin{itemize}
+  			\item le compilateur définit la classe de document
+  			\item le compilateur charge les macros associées à chaque paquet (vérifie leur compatibilité)
+  			\item éventuellement le compilateur mémorise les macros utilisateurs
+  			\item le compilateur commence la lecture de la partie texte proprement dite
+  			\item il met en page au fil du document et crée des fichiers annexes avec la position des sections, figures,...
+  			\item Quand il arrive au \textbackslash end\{document\}, il arrête la compilation
+  		\end{itemize}
+
+		\end{frame}	
+
+		\begin{frame}[containsverbatim]
+  	\frametitle{Comprendre la compilation}
+
+			Lors de la compilation, le compilateur crée une série de fichiers. 
+			
+			Le plus important est le fichier log. Il est automatiquement ouvert dans \TeX Maker. Il permet de voir si la compilation s'est bien déroulée et de déterminer l'erreur dans le cas contraire.
+
+		Dans \TeX Maker, la compilation s'arrête à la première erreur. Le compilateur attend alors une réponse de l'utilisateur d'où le "?" qui s'affiche. En pratique, il vaut mieux modifier le document et recommencer la compilation que d'utiliser les commandes de "déboguage".
+
+		\end{frame}	
+	
+		\begin{frame}[containsverbatim]
+  	\frametitle{La compilation...}
+  		
+  		Comme sous Word pour les longs documents, la création de la table des matières impose la pagination du document.
+  		
+  		Ici, l'équivalent est que plusieurs compilations sont parfois nécessaires pour obtenir le fichier final. 
+  		
+  		\begin{enumerate}
+  			\item Le fichier est transformé en différents formats et un fichier \emph{index} qui contient la position de chaque éléments de la structure est créé
+  			\item Le fichier est recompilé avec le fichier \emph{index} correct et la table des matières est remplie.
+  		\end{enumerate}
+  		
+  		En effet il est nécessaire pour le compilateur de faire la mise en page finale pour déterminer à quelle position se trouve chaque élément. 
+  		
+			Plusieurs phases sont aussi nécessaires pour la bibliographie dont nous parlerons plus tard. 
+
+		\end{frame}	
+		
+\section{Chemins de fichiers}
+		
+		\begin{frame}[containsverbatim]
+  	\frametitle{Les chemins pour les fichiers}
+  		
+  		\latex est assez capricieux pour les chemins de fichiers~:
+			\begin{enumerate}
+				\item déjà il utilise des / à la place des \textbackslash\ pour délimiter les répertoires (comme UNIX)
+				\item la présence d'accents ou de blancs peut parfois être bloquant. Il est bon de prendre l'habitude d'éviter les blancs et les accents quand on travaille avec \latex
+			\end{enumerate}
+		\end{frame}	
+
+\section{Le visionneur de PDF}
+
+		\begin{frame}[containsverbatim]
+  	\frametitle{Acrobat Reader vs. SumatraPDF}
+
+			Sur la plupart des postes, c'esst Acrobat Reader (ou Acrobat) qui est installé. Si le fichier PDF est ouvert dans Acrobat alors pour ne pourrez pas compiler le fichier. Vous serez obliger de fermer le fichier.
+			
+			Par contre si vous utilisez SumatraPDF (c'est un logiciel libre !), vous pouvez laisser ouvert le PDF, la compilation se fera et vous verrez une fois la compilation terminée les modifications directement sans avoir à ouvrir de nouveau le PDF.
+  		
+		\end{frame}	
+										
+\end{document}

@@ -1,0 +1,221 @@
+\input{header}
+\subtitle{Les images}
+
+\newcommand{\bgimg}{
+\AddToShipoutPicture
+   {
+      \put (\LenToUnit{0 cm},\LenToUnit{0 cm})
+      {
+           	\includegraphics{Graphiques/Fond.jpg} 
+      }
+   }
+}
+
+\begin{document}
+
+  \begin{frame}
+  \titlepage
+  \end{frame}
+
+  \begin{frame}<beamer>
+    \frametitle{Plan}
+    \tableofcontents
+  \end{frame}
+
+\section{Les formats d'image}		
+
+		\begin{frame}[containsverbatim]
+  		\frametitle{Les formats de fichier reconnus}
+  		
+  		Tous les formats d'images ne sont pas supportés par LaTeX...
+  		
+  		Si on compile vers un fichier de format~:
+  		\begin{description}
+  			\item[Postscript (.ps)] on peut insérer que des images au format Postscript
+  			\item[PDF (.pdf)] on peut insérer des images au format jpeg, pdf, png, ...
+  		\end{description}
+  		
+  	\end{frame}
+
+
+		\begin{frame}[containsverbatim]
+  		\frametitle{Les formats de fichier reconnus}
+
+			Les formats d'image sont tournés vers les standards \emph{ouverts}.
+			
+			Par conséquent, il n'existe pas de moyen d'importer des images de \emph{wmf} par exemple.
+			
+			Dans ce cas on tentera de convertir le fichier en format de fichier reconnu. 
+			
+			A cet égard, un outil très puissant de conversion d'images est \href{http://www.imagemagick.org}{ImageMagick}. 
+			
+			Une interface graphique existe mais son potentiel se révèle surtout en ligne en commande.
+  		
+  	\end{frame}
+
+		\begin{frame}[containsverbatim]
+  		\frametitle{Les formats de fichier reconnus}
+
+			Il existe des outils permettant de faire des images directement à l'intérieur de \latex.
+			
+			\begin{itemize}
+				\item des schémas
+				\item des dessins et notamment des dessins géométriques
+				\item des graphiques issus de données statistiques
+				\item ...
+			\end{itemize}
+			
+			Ces outils sont des langages à utiliser à l'intérieur de \latex. 
+			
+  	\end{frame}
+
+		\begin{frame}[containsverbatim]
+  		\frametitle{Les formats de fichier reconnus}
+
+			Ne seront cités ici que les trois plus connus et qui permettent tous les trois d'accomplir les tâches précédemment citées~:
+			
+			\begin{description}
+				\item[Metapost] c'est un langage créé par D. \textsc{Knuth}, le créateur de \tex. Extrêmement puissant mais il demande un certain temps d'apprentissage.
+				\item[PSTricks] ce language permet de créer des images Postscript. Il est beaucoup plus accessible mais a certaines limitations.
+				\item[TikZ/PGF] Probablement le plus accessible et le plus pratique mais certaines limitations comme l'absence de graphiques en 3 dimensions par exemple.
+			\end{description}
+			
+  	\end{frame}
+
+		\begin{frame}[containsverbatim]
+  		\frametitle{Exemples d'images réalisées en METAFONT/PSTricks/TikZ}
+			
+			\begin{description}
+				\item [METAFONT] \href{http://melusine.eu.org/syracuse/metapost/}{ici}		
+				\item [PStricks] \href{https://www.tug.org/PSTricks/main.cgi?file=examples}{ici}
+				\item [TikZ] \href{http://www.texample.net/tikz/examples/}{ici}
+			\end{description}				
+						
+						Il est à noter que PStricks est apprécié car il permet de faire un graphique à partir de données issues d'un CSV par exemple.
+						
+  	\end{frame}
+		
+\section{Insérer une image depuis un fichier}
+
+		\begin{frame}[containsverbatim]
+  		\frametitle{Insérer une image dans le texte}
+
+		Il faut utiliser le paquet \emph{graphicx}... 
+
+		\begin{center}
+			\begin{figure}
+				\includegraphics[scale=0.4]{Graphiques/types_of_editors}
+				\caption{\href{http://xkcd.com/}{\copyright\ xkcd}}
+				\label{Graphiques_editors}
+			\end{figure}
+		\end{center}
+		
+		\end{frame}	
+
+		\begin{frame}[containsverbatim]
+  		\frametitle{Insérer une figure}
+
+\tinycode
+\begin{center}
+	\begin{figure}
+		\includegraphics[scale=0.4]{Graphiques/types_of_editors}
+		\caption{\href{http://xkcd.com/}{\copyright\ xkcd}}
+		\label{Graphiques_editors}
+	\end{figure}
+\end{center}
+\end{Verbatim}
+		
+		\end{frame}	
+		
+		\begin{frame}[containsverbatim]
+  		\frametitle{Insérer une figure}
+
+			Pour les dimensions, il existe plusieurs arguments possibles~:
+			
+			\begin{description}
+				\item[scale=] Dans ce cas on spécifie un rapport (de 0 à 1) d'agrandissement ou de réduction
+				\item[width=] On spécifie la largeur de l'image. La hauteur est recalculé automatiquement
+				\item[height=] On spécifie la hauteur de l'image. La hauteur est recalculé automatiquement
+				\item[width=,height=] La largeur et la hauteur de l'image sont spécifiées.
+				\item[keepaspectratio] quand on définit seulement une largeur ou une hauteur, cet argument permet de conserver le ratio largeur/hauteur original
+			\end{description}
+
+			D'autres arguments sont détaillés sur le \href{http://en.wikibooks.org/wiki/LaTeX/Importing_Graphics}{FramaBook} de Wikipedia.
+
+		\end{frame}
+
+		\begin{frame}[containsverbatim]
+  		\frametitle{Insérer une figure}
+
+\tinycode
+\includegraphics[scale=1]{Graphiques/types_of_editors} 
+...
+\includegraphics[width=0.5\textwidth]{Graphiques/types_of_editors}
+...
+\includegraphics[width=0.5\textheight]{Graphiques/types_of_editors}
+...
+\includegraphics[width=0.5\textheight, height=0.5\textheight]{Graphiques/types_of_editors}
+...
+\end{Verbatim}
+		
+		\end{frame}	
+		
+		\begin{frame}[containsverbatim]
+  		\frametitle{Deux images cote à cote ?}
+
+			Il suffit de mélanger les tableaux avec les images...
+		
+			\begin{center}		
+				\begin{figure}
+					\begin{tabular}{cc}
+						\includegraphics[scale=0.07]{Graphiques/3} 
+						& 
+						\includegraphics[scale=0.07]{Graphiques/29}\\
+					\end{tabular}
+					\caption{Les pingouins de L.L. deMArs}
+					\label{Graphiques_Double}
+				\end{figure}
+			\end{center}
+
+  	\end{frame}
+
+		\begin{frame}[containsverbatim]
+  		\frametitle{Deux images cote à cote ?}
+
+			Il suffit de mélanger les tableaux avec les images...
+
+\tinycode			
+\begin{center}		
+	\begin{figure}
+		\begin{tabular}{cc}
+			\includegraphics[scale=0.07]{Graphiques/3} 
+			& 
+			\includegraphics[scale=0.07]{Graphiques/29}\\
+		\end{tabular}
+		\caption{Les pingouins de L.L. deMArs}
+		\label{Graphiques_Double}
+	\end{figure}
+\end{center}
+\end{Verbatim}
+
+  	\end{frame}
+
+
+		\begin{frame}[containsverbatim]
+  		\frametitle{Des images de fond ou des logos...}
+
+			Il est parfois nécessaire d'ajouter une image de fond ou un logo.
+			
+			Ceci peut être réalisé de nombreuses manières différentes. Les plus communes sont d'utilisés~:
+			\begin{description}
+				\item[le paquet \emph{watermark}] pour insérer un texte en filigrane
+				\item[le paquet \emph{fancyhdr}] pour insérer des logos en bas et en haut de page
+				\item[le paquet \emph{eso-pic}] pour insérer un filigrane, image de fond, un logo, ...
+				\item[TikZ] pour insérer un filigrane, image de fond, un logo, ...
+			\end{description}
+
+  	\end{frame}
+						
+			
+\end{document}
+

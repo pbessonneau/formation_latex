@@ -1,0 +1,536 @@
+\section{Les mathématiques}
+
+  		\subsection{Le langage à l'intérieur des environnements}
+
+			Les lettres et les chiffres sont conservés. Les espaces sont supprimés. Les deux symboles incontournables sont~:
+	
+\code			
+X_{ijk} et e^{ax+b}
+\end{Verbatim}
+			
+			Le souligné, \_ ,  permet de mettre i en indice de X. Le \textasciicircum permet de mettre en exposant tout ce qui est entre accolades. Les accolades sont optionnelles s'il n'y a pas d'ambiguité dans la syntaxe~: 
+			
+			\code			
+			X_i et e^a
+			\end{Verbatim}
+
+			
+			
+			\code			
+			\frac{a}{b}
+			\end{Verbatim}
+			
+			qui donne la division $\frac{a}{b}$.
+			
+
+
+			\begin{displaymath}
+			\sqrt{\frac{1+\sqrt[3]{3x+1}}{3x+\frac{1-x}{1+x}}}
+			\end{displaymath}
+
+\code			
+\sqrt{\frac{1+\sqrt[3]{3x+1}}{3x+\frac{1-x}{1+x}}}
+\end{Verbatim}
+
+
+  		\subsection{Et les intégrales et sommes ?}
+  		
+			\begin{displaymath}
+				\ln(x)=\int_{1}^{x}\frac{1}{t}\mathrm{d}t
+			\end{displaymath}
+
+			\code			
+\ln(x)=\int_{1}^{x}\frac{1}{t}\mathrm{d}t
+			\end{Verbatim}
+		
+
+  		
+			\begin{displaymath}
+				\sum_{i=0}^{n}q^i=\frac{1-q^{n+1}}{1-q}
+			\end{displaymath}
+
+			\code			
+\sum_{i=0}^{n}q^i=\frac{1-q^{n+1}}{1-q}
+			\end{Verbatim}
+		
+
+
+  		
+			\begin{displaymath}
+\int\limits_{-\infty}^{\infty}x^2=\left[\frac{1}{3}x^3\right]_{-\infty}^{\infty}
+			\end{displaymath}
+
+\code			
+\int\limits_{-\infty}^{\infty}x^2
+=\left[x^2\right]_{-\infty}^{\infty}
+\end{Verbatim}
+		
+
+
+  		\subsection{Une racine n-ème}
+  		
+			\begin{displaymath}
+				\sqrt[3]{\frac{3x}{2y-3}}
+			\end{displaymath}
+
+			\code			
+\sqrt[3]{\frac{3x}{2y-3}}
+			\end{Verbatim}
+		
+
+\section{Les différents environnements}
+
+  		\subsection{En ligne}
+  		
+  		Les commandes pour faire des mathématiques en ligne, c'est-à-dire sans créer de paragraphe, sont les suivantess : \textdollar, \textbackslash begin\{math\}. Pour fermer ces environnements, on utilise respectivement \textdollar, \textbackslash end\{math\}. 
+  		
+  		Par exemple : $y = ax + b$ s'écrit tout simplement...
+  		
+			\code
+Par exemple : $y = ax + b$ s'écrit tout simplement...
+			\end{Verbatim}
+
+
+  		
+  		Pour insérer la formule du modèle de Rasch à l'intérieur d'une phrase, un seul \textdollar\ est suffisant~: $P(X_{i}=1)=\frac{1}{1+e^{(\theta_{i}-\beta_{i})}}$
+  		
+			\code
+$P(X_{i}=1)=\frac{1}{1+e^{(\theta_{i}-\beta_{i})}}$
+			\end{Verbatim}
+			
+
+  		\subsection{Mise en évidence}
+  		
+  		Les commandes pour faire des maths en créant un paragraphe sous \latex sont les suivantes~: \textdollar\textdollar, \textbackslash begin\{displaymath\}. 
+  		Pour fermer ces environnements, on utilise respectivement \textdollar\textdollar, \textbackslash end\{displaymath\}. 
+
+			Par exemple : 
+			$$y = ax + b$$
+			s'écrit tout simplement...
+  		
+			\code
+Par exemple : 
+$$y = ax + b$$
+s'écrit tout simplement...
+			\end{Verbatim}
+  					
+
+
+					
+			Il existe une différence non négligeable entre les deux écritures. Dans le cas du \$ simple, les formules doivent tenir sur la hauteur d'une ligne de texte. Ceci a pour conséquence que les indices de certains opérateurs comme les sommes par exemple ne sont pas là où l'on souhaiterait les voir~:
+			
+			\vspace{0.5cm}
+			bla bla bla $\sum_{i=0}^{k}$ bla bla bla 
+			\vspace{0.5cm}
+			
+			Par contre avec \$\$ dans ce cas, \latex n'est plus contraint pas la hauteur de la ligne et l'aspect est plus agréable à l'oeil.
+			
+			$$\sum_{i=0}^{k}$$
+  		  					
+
+
+  		\subsection{Pour une équation}
+  		
+  		La commande pour écrire des équations est la suivante : \textbackslash begin\{equation\}. 
+  		Pour fermer l'environnement on utilise \textbackslash end\{equation\}. 
+
+			Par exemple : 
+			\begin{equation}y = ax + b\end{equation}
+			s'écrit tout simplement...
+  		
+			\code
+Par exemple : 
+\begin{equation}y = ax + b\end{equation}
+s'écrit tout simplement...
+			\end{Verbatim}
+  					
+
+  		\subsection{Pour une série d'équations}
+  		
+  		La commande pour écrire une série d'équations est la suivante : \textbackslash begin\{eqnarray\}. 
+  		Pour fermer cet environnement, on utilise \textbackslash end\{eqnarray\}. 
+
+			Par exemple : 
+			\begin{eqnarray}
+			y & = & ax + b\\
+			a & = & \frac{y-b}{a}\label{myeq}\\
+			  & et &\nonumber\\
+			b & = & y - ax
+			\end{eqnarray}
+			s'écrit tout simplement...
+  		
+			Et vous pouvez faire référence à l'équation \eqref{myeq}.
+			
+
+
+  		
+  		Le texte correspondant est~:
+\code
+\begin{eqnarray}
+y & = & ax + b\\
+a & = & \frac{y-b}{a}\label{myeq}\\
+	& et &\nonumber\\
+b & = & y - ax
+\end{eqnarray}
+
+Et vous pouvez faire référence à l'équation \eqref{myeq}.
+\end{Verbatim}
+			
+
+
+  		
+			\code
+Par exemple : 
+\begin{eqnarray}
+	y & = & ax + b\\
+	a & = & \frac{y-b}{a}\\
+  	& et &\nonumber\\
+	b & = & y - ax\\
+\end{eqnarray}
+s'écrit tout simplement...
+			\end{Verbatim}
+
+  					
+
+  		
+			Comme son nom l'indique, \emph{eqnarray} permet d'aligner des morceaux des équations.
+			
+			Dans l'exemple précédent, on veut que la partie gauche, le signe = et enfin la partie droite soient alignés. Pour se faire, on utilise la même terminologie que pour les tableaux vus précédemment avec \& et \textbackslash\textbackslash.
+  					
+
+  		\subsection{Supprimer ou modifier la numérotation}
+
+			Il faut utiliser l'* qui modifie le comportement des fonctions comme pour les titre de parties ou sections.
+			
+			Soit~:
+\code			
+\begin{equation*}			
+ou
+\begin{eqnarray*}			
+\end{Verbatim}
+			
+			Enfin, pour ne pas numéroter une ligne parmi l'ensemble, il faut placer la commande \textbackslash nonumber à la fin.
+  					
+
+  		\subsection{Système d'équations}
+  		
+			Dans un système d'équations, il est nécessaire d'ajouter une accolade~:
+			
+			\begin{displaymath}
+			\left\{
+				\begin{array}{lll}
+				x & = & 4a^2 + 5b -c \\
+				y & = & 7a^2 + b - 3c\\
+				z & = & b + 4c\\
+				\end{array}
+				\right.
+			\end{displaymath}  					
+			
+
+  		
+\code
+\begin{displaymath}
+	\left\{
+		\begin{array}{lll}
+			x & = & 4a^2 + 5b -c \\
+			y & = & 7a^2 + b - 3c\\
+			z & = & b + 4c	
+		\end{array}
+	\right.
+\end{displaymath}  					
+\end{Verbatim}
+
+		Il est à noter ici que l'on peut insérer un tableau à l'intérieur et utiliser la même syntaxe que pour \emph{eqnarray}.
+			
+
+
+			Enfin ici, on a une accolade à gauche mais rien à droite. Donc la syntaxe est~:
+			\code
+			\left\{
+			...
+			\right.
+			\end{Verbatim}
+
+			Le point indique qu'aucun symbole n'est utilisé pour fermer la partie droite. 
+  		
+
+  		\subsection{Pour un ensemble plus complexe}
+  		  		
+			Si on combine deux tableaux~:
+
+			$$
+			\begin{array}{lll}
+			A & = & \left\{
+				\begin{array}{lll}
+				x & = & 4a^2 + 5b -c \\
+				y & = & 7a^2 + b - 3c\\
+				z & = & b + 4c	
+				\end{array}
+				\right.\\
+			B & = &\left\{
+				\begin{array}{lll}
+				x & = & 6a^2 + 3b -c \\
+				y & = & 2a^2 + 4b - 7c\\
+				z & = & 2b + c	
+				\end{array}
+				\right.\\
+			\end{array}  					
+		$$
+
+  		
+\code
+$$
+\begin{array}{lll}
+A & = & \left\{
+	\begin{array}{lll}
+	x & = & 4a^2 + 5b -c \\
+	y & = & 7a^2 + b - 3c\\
+	z & = & b + 4c	
+	\end{array}
+	\right.\\
+B & = &\left\{
+	\begin{array}{lll}
+	x & = & 6a^2 + 3b -c \\
+	y & = & 2a^2 + 4b - 7c\\
+	z & = & 2b + c	
+	\end{array}
+	\right.\\
+\end{array}  					
+$$
+\end{Verbatim}
+
+
+  		\subsection{Note sur les parenthèses et accolades....}
+
+			\code
+\left(
+	\begin{array}{ccc}
+		1 & 0 & 0\\
+		0 & 1 & 0\\
+		0 & 0 & 1\\
+	\end{array}
+\right)
+			\end{Verbatim}
+
+			Ici on veut représenter la matrice identité, il faut un symbole des deux cotés...
+  		
+  	
+
+			$$
+			\left[
+			\begin{array}{ccc}
+			1 & 0 & 0\\
+			0 & 1 & 0\\
+			0 & 0 & 1\\
+			\end{array}
+			\right]
+			$$
+			
+			On notera que comme $\{$ a un sens pour le langage, on le précède d'un \textbackslash. Par contre ce n'est pas le cas pour $($ et $[$.
+  		
+
+\section{Les matrices}
+
+  		\subsection{Un environnement pour les matrices}
+
+\begin{displaymath}
+\begin{pmatrix} 
+D_1t				&-a_{12}t_2		&	\dots	&-a_{1n}t_n\\
+-a_{21}t_1	&D_2t					&\dots	&-a_{2n}t_n\\
+\hdotsfor[2]{4}\\
+-a_{n1}t_1	&-a_{n2}t_2		&\dots	&D_nt
+\end{pmatrix}
+\end{displaymath}
+
+
+  	
+\code
+\begin{pmatrix} 
+	D_1t        &-a_{12}t_2   &\dots &-a_{1n}t_n\\
+	-a_{21}t_1  &D_2t         &\dots  &-a_{2n}t_n\\
+	\hdotsfor[2]{4}\\
+	-a_{n1}t_1  &-a_{n2}t_2   &\dots  &D_nt
+\end{pmatrix}
+\end{Verbatim}
+
+			En fait ça marche presque comme un tableau avec des \& et \textbackslash \textbackslash.
+
+
+\section{L'insertion de texte}
+
+  		\subsection{Le texte simple}
+
+		Comme on l'a vu, le texte est interprété différemment, en italique.
+		
+		Mais dans des formules on peut vouloir rajouter du texte avec une police normal.
+		
+		Dans ce cas on utilise la commande \textbackslash text. Dans les \emph{text} les espaces sont conservés.
+		
+		$$\text{Soit } x \text{ et } y$$
+		
+		s'écrit...
+		
+		\code
+$$\text{Soit } x \text{ et } y$$
+		\end{Verbatim}
+
+
+\section{Les accents typographiques et mathématiques}
+
+  		\subsection{Les accents}
+
+			Les accents dans le mode mathématique ne sont pas gérés par le package babel comme dans le texte normal.\\
+			
+			\vspace{0.1cm}
+			Il faut donc les appeler avec une syntaxe particulière~:~$\acute{E}nergie=masse*c\acute{e}l\acute{e}rit\acute{e}^2$ soit~:
+			\code
+$\acute{E}nergie=masse*c\acute{e}l\acute{e}rit\acute{e}^2$
+			\end{Verbatim}
+			
+			
+  		\subsection{Les accents texte et mathématiques}
+			
+			Le même concept est à appliquer pour les accents au-dessus d'un vecteur, d'une moyenne,...
+			
+\begin{table}[h!]
+\begin{center}
+
+  \begin{tabular}{lc@{\quad}lc@{\quad}lc}
+    \ltxcom{hat}\verb+{x}+  &$\hat{x}$  & \ltxcom{check}\verb+{x}+&$\check{x}$&
+    \ltxcom{breve}\verb+{x}+&$\breve{x}$\\
+    \ltxcom{acute}\verb+{x}+&$\acute{x}$& \ltxcom{grave}\verb+{x}+&$\grave{x}$&
+    \ltxcom{tilde}\verb+{x}+&$\tilde{x}$\\ 
+    \ltxcom{bar}\verb+{x}+  &$\bar{x}$  & \ltxcom{dot}\verb+{x}+&$\dot{x}$&
+    \ltxcom{ddot}\verb+{x}+ &$\ddot{x}$\\  
+  \end{tabular}
+\caption{Les accents en mode mathématique (FramaBook \LaTeX)}
+\end{center}
+\end{table}			
+
+	
+  		\subsection{Les accents mathématiques...}
+			
+			Pour les flèches des calculs vectoriels, il y a, selon la longueur la commande \emph{vec} pour une lettre sinon la commande \emph{overrightarrow}.\\
+			
+			\vspace{0.1cm}
+			$ \vec{a} \mbox{ et } \overrightarrow{AB} $ s'écrit~:
+						
+			\code
+$ \vec{a} \mbox{ et } \overrightarrow{AB} $
+			\end{Verbatim}
+
+
+			
+	Toute une liste de symboles mathématiques du même type que \emph{overrightarrow} est utilisable. Je vous invite à consulter la liste des caractères spéciaux déjà \href{ftp://tug.ctan.org/pub/tex-archive/info/symbols/comprehensive/symbols-letter.pdf}{citée}.
+
+
+			
+Par exemple, il suffit d'appeler la commande~:
+
+			\code
+$$\underbrace{monequation}$$
+			\end{Verbatim}
+			
+		$$\underbrace{monequation}$$
+				
+
+
+\section{Le style de police et les espaces}
+
+  		\subsection{Les fonctions usuelles}
+			
+	Nous avons pu noter que le texte est mis en italique dans le mode mathématique. Mais ce n'est pas le comportement que l'on attend pour les fonctions usuelles telles que sin, cos, ln,... qui ne doivent pas être en italique...
+	
+			En fait il suffit de faire précéder le nom de la fonction par un \textbackslash, en effet la plupart des fonctions usuelles sont reconnues par \LaTeX~: $\sin \; \cos \; \ln \; ...$.
+			
+			\code
+$\sin \; \cos \; \ln \; ...$
+			\end{Verbatim}
+		 
+
+  		\subsection{Les polices}
+			
+	Pour changer et avoir la police des ensembles les commandes sont les suivantes~:
+	
+	\vspace{0.2cm}
+\begin{table}[h!]
+	\begin{center}
+
+  \begin{tabular}{lc}
+    \verb+Soit $+\ltxcom{mathit}\verb+{A\in\Phi}$+ &    Soit $\mathit{A\in\Phi}$ \\
+    \verb+Soit $+\ltxcom{mathrm}\verb+{A\in\Phi}$+ &    Soit $\mathrm{A\in\Phi}$ \\
+    \verb+Soit $+\ltxcom{mathbf}\verb+{A\in\Phi}$+ &    Soit $\mathbf{A\in\Phi}$ \\
+    \verb+Soit $+\ltxcom{mathsf}\verb+{A\in\Phi}$+ &    Soit $\mathsf{A\in\Phi}$ \\
+    \verb+Soit $+\ltxcom{mathtt}\verb+{A\in\Phi}$+ &    Soit $\mathtt{A\in\Phi}$ \\
+    \verb+Soit $+\ltxcom{mathcal}\verb+{A}\in\Phi$+&    Soit $\mathcal{A}\in\Phi$ \\
+  \end{tabular}
+\caption{Les polices en mode mathématique (FramaBook \LaTeX)}
+  \end{center}
+  \end{table}
+  
+
+  		\subsection{Les espaces}
+			
+	Pour insérer des espaces dans des équations il suffit d'utiliser les commandes suivantes~:
+	
+	\begin{table}[h!]
+  \begin{center}
+    {\addtolength{\extrarowheight}{5pt}
+    \begin{tabular}{|ll|ll|ll|ll|}
+      \hline
+      \verb+\!+ & $\Box\!\Box$ &
+      \emph{(rien)} & $\Box\Box$ &
+      \verb+\,+ & $\Box\,\Box$ &
+      \verb+\:+ & $\Box\:\Box$ \\
+      \hline
+      \verb+\;+ & $\Box\;\Box$ &
+      \verb*+\ + & $\Box\ \Box$ &
+      \ltxcom{quad} & $\Box\quad\Box$ &
+      \ltxcom{qquad} & $\Box\qquad\Box$ \\
+      \hline
+    \end{tabular}}
+\caption{Les espaces en mode mathématique (FramaBook \LaTeX)}
+  \end{center}
+ \end{table}
+
+
+
+\section{AMSMath}
+ 
+  		\subsection{AMSMath}
+
+			Le paquet \emph{amsmath} permet d'étendre les capacités de \latex en matière de mise en page des mathématiques.
+  		
+				\begin{align}
+(a+b)^2 & = (a+b)(a+b)\\
+				& = a^2+b^2+2ab
+				\end{align}
+
+			\code			
+\begin{align}
+(a+b)^2	& = (a+b)(a+b)\\
+	& = a^2+b^2+2ab
+\end{align}
+			\end{Verbatim}
+		
+
+  		\subsection{Un petit système d'équation ?}
+
+			Pour cela, on peut passer par le paquet \emph{amsmath}~:
+
+\begin{displaymath}
+P_{r-j}=\begin{cases}
+0& \text{if $r-j$ is odd},\\
+r!\,(-1)^{(r-j)/2}& \text{if $r-j$ is even}.
+\end{cases}
+\end{displaymath}
+
+			\code			
+P_{r-j}=\begin{cases}
+	0	& \text{if $r-j$ is odd},\\
+	r!\,(-1)^{(r-j)/2} & \text{if $r-j$ is even}.
+\end{cases}
+			\end{Verbatim}
+		
+				
+

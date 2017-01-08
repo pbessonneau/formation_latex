@@ -1,0 +1,168 @@
+\include{header}
+
+ 				\subtitle{Organisation et automatisation sous \LaTeX}
+
+\begin{document}
+
+  \begin{frame}
+  \titlepage
+  \end{frame}
+
+  \begin{frame}<beamer>
+    \frametitle{Plan}
+    \tableofcontents
+  \end{frame}	
+
+\section{Organiser un document}
+
+		\begin{frame}[containsverbatim]
+  		\frametitle{Organiser un document \LaTeX}
+
+	Comme les images et les tableaux peuvent être contenus dans des dossiers séparés, il est conseillé de mettre les images dans un sous-répertoire à part et les tableaux dans un autre sous-répertoire.
+
+Lors de l'inclusion, il suffit alors d'ajouter le nom du sous-répertoire et le nom du fichier sans le suffixe.
+
+  	\end{frame}
+
+		\begin{frame}[containsverbatim]
+  		\frametitle{Organiser un document \LaTeX}
+
+\code
+\begin{figure}
+	\includegraphics[scale=1]{Graphiques/manuals}
+	\caption{\href{http://xkcd.com/}{\copyright\ xkcd}}
+	\label{Graphiques_Calvin}
+\end{figure}
+\end{Verbatim}
+
+  	\end{frame}
+
+
+		\begin{frame}[containsverbatim]
+  		\frametitle{Les chemins sous \LaTeX}
+
+Dans les chemins (noms de fichiers et répertoires), \latex ne supporte pas les caractères spéciaux et notamment les blancs. 
+
+Quand vous spécifiez le chemin pour un style, une image, un tableau, une partie de document, vous ne pouvez donc pas utiliser de caractères spéciaux accentués et de blancs dans les chemins.
+
+  	\end{frame}
+
+		\begin{frame}[containsverbatim]
+  		\frametitle{L'inclusion dans un document volumineux}
+
+Vous pouvez inclure du code \latex provenant d'un autre fichier dans un document \LaTeX.
+
+Cela permet, par exemple, de faire un livre avec un fichier par chapitres ou bien de ne pas inclure les tableaux directement dans le corps du document (avec Sweave par exemple).
+
+  	\end{frame}
+
+
+		\begin{frame}[containsverbatim]
+  		\frametitle{L'inclusion dans un document volumineux}
+
+Pour cela vous disposez de deux commandes \textit{input} et \textit{include}.
+
+La commande \textit{input} insère directement le code \latex tandis que la commande \textit{input} insère un saut de page avant le contenu du document inséré.
+
+Toutefois on ne peut pas imbriquer un appel à un fichier à l'intérieur d'un autre. On ne pourra donc pas inclure un tableau par un \textit{include} dans un fichier qui sera lui-même importé par un autre \textit{include}.
+
+  	\end{frame}
+
+\section{Définir une fonction personnalisée}
+
+		\begin{frame}[containsverbatim]
+  		\frametitle{Définir une fonction personnalisée}
+  		
+                Pour insérer un graphique dans un document de façon répetée, autant l'écrire une fois... dans le préambule...
+
+\code
+\newcommand{%
+\LinuxA}
+{\includegraphics[scale=0.1]
+{Graphiques/linux.png}}
+\end{Verbatim}
+
+  	\end{frame}
+
+		\begin{frame}[containsverbatim]
+  		\frametitle{Définir une fonction personnalisée}
+  		
+Dans cet exemple, on définit une commande \textbackslash Linux qui ajoute une image.
+
+\LinuxA est mon OS préféré.
+
+Mais on voit qu'il y a un problème car le blanc entre le texte et la macro disparaît.
+
+\end{frame}
+
+
+		\begin{frame}[containsverbatim]
+  		\frametitle{xspace}
+  		
+La même fonction avec l'utilisation du package \textit{xspace}.
+
+\code
+\newcommand{%
+\LinuxB}
+{\includegraphics[scale=0.1]
+{Graphiques/linux.png}\xspace}
+\end{Verbatim}
+
+  	\end{frame}
+
+		\begin{frame}[containsverbatim]
+  		\frametitle{xspace}
+
+\LinuxB est mon OS préféré.
+
+Le \textbackslash xspace situé en fin de commande va, lors de la
+compilation, vérifier si un espace est nécessaire et l'ajouter si
+besoin.  
+
+  	\end{frame}
+
+		\begin{frame}[containsverbatim]
+  		\frametitle{Avec des arguments}
+
+On aurait pu écrire une fonction plus générique comme par exemple~:
+
+\code
+\newcommand{%
+\Image}[2]
+{\includegraphics[scale=#1]
+{Graphiques/#2}}
+\end{Verbatim}
+
+Dans ce cas l'appel est le suivant~:
+\code
+\Image{0.1}{linux.png}
+\end{Verbatim}
+
+  	\end{frame}
+
+		\begin{frame}[containsverbatim]
+  		\frametitle{Redéfinition d'une fonction existante}
+
+On pourrait vouloir par exemple modifier une fonction existante pour les besoins de la mise en page. La redefinition utilise une syntaxe légèrement différente.
+
+La fonction ci-dessous remplace l'italique de la fonction \emph{emph} par des caractères en gras.
+ 
+\code
+\renewcommand{%
+\emph}[1]
+{\textbf{#1}}
+\end{Verbatim}
+
+  	\end{frame}
+
+		\begin{frame}[containsverbatim]
+  		\frametitle{Package de programmation}
+
+		Enfin pour faire de la programmation simple, on peut créer des variables en \latex et les packages \textit{ifthen} permet de faire des boucles et des tests conditionnels.
+
+  	\end{frame}
+
+  					
+\end{document}
+
+
