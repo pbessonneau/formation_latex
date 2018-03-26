@@ -27,9 +27,7 @@
 
 Dans le corps du texte, les commandes à utiliser pour définir une diapositive sont les suivantes~:
 \code
-\begin{frame}
 Mon texte...
-\end{frame}
 \end{Verbatim}
 
 	ce qui donne la diapo de la page suivante...
@@ -55,11 +53,12 @@ Vous pouvez rajouter des titres aux diapositives. Ces titres seront clairement v
 \vspace{0.1cm}
 Sur ce modèle il occupe le bandeau juste au dessus du texte. La syntaxe est relativement simple~:
 
+
+
+
 \code
-\begin{frame}
-\frametitle{Mon titre}
+\subsection{Mon titre}
 Mon texte ....
-\end{frame}
 \end{Verbatim}
 
 
@@ -71,10 +70,8 @@ Mon texte ....
 La syntaxe ci-dessous est aussi possible... pour le même résultat.
 
 \code
-\begin{frame}{Mon titre}
-\frametitle
+\subsection
 Mon texte ....
-\end{frame}
 \end{Verbatim}
 
 
@@ -84,10 +81,8 @@ Mon texte ....
 S'il y a au moins un bloc \emph{listings} ou \emph{verbatim} il faut ajouter une balise pour \LaTeX~:
 
 \code
-\begin{frame}[containsverbatim]
-\frametitle{Mon titre}
+\subsection{Mon titre}
 Mon texte ....
-\end{frame}
 \end{Verbatim}
 
 
@@ -99,9 +94,7 @@ Mon texte ....
 On ne peut pas utiliser la syntaxe suivante dans cet ordre.
 
 \code
-\begin{frame}[containsverbatim]{Mon titre}
 Mon texte ....
-\end{frame}
 \end{Verbatim}
 
 
@@ -111,12 +104,10 @@ Mon texte ....
 Beamer offre la possibilité de mettre tout ou partie du texte en évidence en utilisant la balise \emph{block}
 
 \code
-\begin{frame}[containsverbatim]
-\frametitle{Mon titre}
+\subsection{Mon titre}
 \begin{block}{Mon titre de bloc}
 Mon texte ....
 \end{block}
-\end{frame}
 \end{Verbatim}
 
 
